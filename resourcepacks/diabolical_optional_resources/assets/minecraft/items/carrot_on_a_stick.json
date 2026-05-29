@@ -1,0 +1,32 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "cases": [
+      {
+        "when": "diabolical:infernal_ledger",
+        "model": {
+          "type": "minecraft:model",
+          "model": "diabolical:item/infernal_ledger"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/carrot_on_a_stick"
+    }
+  },
+  "__smithed__": {
+    "rules": [
+      {
+        "type": "smithed:replace",
+        "target": "model",
+        "source": {
+          "type": "smithed:reference",
+          "path": "model"
+        }
+      }
+    ]
+  }
+}

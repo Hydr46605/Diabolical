@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:relics/first_relic",
+  "display": {
+    "icon": {
+      "id": "minecraft:gold_nugget"
+    },
+    "title": {
+      "text": "Midas Coin",
+      "color": "yellow"
+    },
+    "description": {
+      "text": "Use the Midas Coin to turn a little debt into gold."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

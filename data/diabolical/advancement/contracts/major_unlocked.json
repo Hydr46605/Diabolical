@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:acts/major_contracts",
+  "display": {
+    "icon": {
+      "id": "minecraft:netherite_scrap"
+    },
+    "title": {
+      "text": "Major Clauses",
+      "color": "dark_red"
+    },
+    "description": {
+      "text": "Sign every minor contract to unlock major contract offers."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

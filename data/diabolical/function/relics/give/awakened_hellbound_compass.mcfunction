@@ -1,0 +1,3 @@
+# Grants an Awakened Hellbound Compass charged relic.
+give @s minecraft:recovery_compass[minecraft:custom_data={diabolical:{relic:"awakened_hellbound_compass",version:1}},minecraft:custom_model_data={strings:["diabolical:awakened_hellbound_compass"]},minecraft:item_name='{"text":"Awakened Hellbound Compass","color":"dark_red","italic":false}',minecraft:lore=['{"text":"It points at the nearest way out of debt.","color":"gray","italic":false}','{"text":"Charges are tracked on your ledger account.","color":"dark_gray","italic":false}','{"text":"Use: /trigger diab.relic set 4","color":"dark_gray","italic":false}']] 1
+scoreboard players set @s diab.rcharge 3

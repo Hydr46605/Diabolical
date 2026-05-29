@@ -1,0 +1,3 @@
+# Shows controls for active The Red Ledger.
+tellraw @s [{"text":"Active: The Red Ledger","color":"dark_red","bold":true},{"text":"  Contract debt: ","color":"gray","bold":false},{"score":{"name":"@s","objective":"diab.cdebt"},"color":"white"}]
+tellraw @s [{"text":"  "},{"text":"[Pay 15]","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/trigger diab.pay set 6"},"hoverEvent":{"action":"show_text","contents":{"text":"Pay The Red Ledger debt"}}},{"text":"  "},{"text":"[Revoke]","color":"red","bold":true,"clickEvent":{"action":"run_command","value":"/trigger diab.revoke set 6"},"hoverEvent":{"action":"show_text","contents":{"text":"Close The Red Ledger without paying total debt"}}}]

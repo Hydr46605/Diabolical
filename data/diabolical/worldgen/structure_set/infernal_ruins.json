@@ -1,0 +1,25 @@
+{
+  "structures": [
+    {
+      "structure": "diabolical:ash_circle",
+      "weight": 4
+    },
+    {
+      "structure": "diabolical:ledger_cairn",
+      "weight": 3
+    },
+    {
+      "structure": "diabolical:collector_post",
+      "weight": 2
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 32,
+    "separation": 12,
+    "spread_type": "linear",
+    "frequency": 1.0,
+    "frequency_reduction_method": "default",
+    "salt": 1448699103
+  }
+}

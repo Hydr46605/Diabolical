@@ -1,0 +1,19 @@
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Pack/build outputs
+dist/
+build/
+*.zip
+tmp/
+
+# Minecraft runtime/test-world noise
+world/
+logs/
+crash-reports/
+*.log

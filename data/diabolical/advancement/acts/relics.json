@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:contracts/unlocked",
+  "display": {
+    "icon": {
+      "id": "minecraft:recovery_compass"
+    },
+    "title": {
+      "text": "Act III: Cursed Tools",
+      "color": "dark_purple"
+    },
+    "description": {
+      "text": "Contracts and rituals can create relics with useful power and real costs."
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

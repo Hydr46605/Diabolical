@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:acts/first_deal",
+  "display": {
+    "icon": {
+      "id": "minecraft:writable_book"
+    },
+    "title": {
+      "text": "First Signature",
+      "color": "dark_red"
+    },
+    "description": {
+      "text": "Build an Infernal Altar: crying obsidian with soul sand or soul soil on all four sides, then offer paper, ink sac, and a gold nugget."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

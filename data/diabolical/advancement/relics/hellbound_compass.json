@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:relics/first_relic",
+  "display": {
+    "icon": {
+      "id": "minecraft:recovery_compass"
+    },
+    "title": {
+      "text": "Hellbound Compass",
+      "color": "dark_red"
+    },
+    "description": {
+      "text": "Use the compass while in debt to see what the ledger thinks you owe."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:relics/first_relic",
+  "display": {
+    "icon": {
+      "id": "minecraft:fire_charge"
+    },
+    "title": {
+      "text": "Ashen Charm",
+      "color": "gold"
+    },
+    "description": {
+      "text": "Burn an Ashen Charm for protection, then carry the debt it leaves behind."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+# Shows the Infernal Ledger relic controls page.
+tellraw @s [{"text":"Infernal Ledger","color":"dark_red","bold":true},{"text":" - Relics","color":"gray","bold":false}]
+function diabolical:interface/ledger/nav
+execute if score #relics diab.config matches 0 run function diabolical:interface/ledger/disabled/relics
+execute if score #relics diab.config matches 1 run tellraw @s [{"text":"Hold the matching relic, then choose a use action.","color":"gray"}]
+execute if score #relics diab.config matches 1 run tellraw @s [{"text":"Cooldown: ","color":"gray"},{"score":{"name":"@s","objective":"diab.cooldown"},"color":"white"},{"text":"  Awakened compass charges: ","color":"gray"},{"score":{"name":"@s","objective":"diab.rcharge"},"color":"white"}]
+execute if score #relics diab.config matches 1 run tellraw @s [{"text":"  "},{"text":"[Use Ashen Charm]","color":"yellow","bold":true,"clickEvent":{"action":"run_command","value":"/trigger diab.relic set 1"},"hoverEvent":{"action":"show_text","contents":{"text":"Use selected Ashen Charm"}}}]
+execute if score #relics diab.config matches 1 run tellraw @s [{"text":"  "},{"text":"[Use Midas Coin]","color":"yellow","bold":true,"clickEvent":{"action":"run_command","value":"/trigger diab.relic set 2"},"hoverEvent":{"action":"show_text","contents":{"text":"Use selected Midas Coin"}}}]
+execute if score #relics diab.config matches 1 run tellraw @s [{"text":"  "},{"text":"[Use Hellbound Compass]","color":"yellow","bold":true,"clickEvent":{"action":"run_command","value":"/trigger diab.relic set 3"},"hoverEvent":{"action":"show_text","contents":{"text":"Use selected Hellbound Compass"}}}]
+execute if score #relics diab.config matches 1 run tellraw @s [{"text":"  "},{"text":"[Use Awakened Compass]","color":"red","bold":true,"clickEvent":{"action":"run_command","value":"/trigger diab.relic set 4"},"hoverEvent":{"action":"show_text","contents":{"text":"Spend one awakened compass charge"}}}]
+execute if score #relics diab.config matches 1 run tellraw @s [{"text":"  "},{"text":"[Awaken Compass]","color":"dark_red","bold":true,"clickEvent":{"action":"run_command","value":"/trigger diab.relic set 5"},"hoverEvent":{"action":"show_text","contents":{"text":"Hold a Hellbound Compass and spend 1 Echo Shard, 3 Amethyst Shards, 4 Redstone Dust"}}}]
+execute if score #relics diab.config matches 1 run tellraw @s [{"text":"Relic sources: First Signature, Pact of Embers, Red Ledger Minor, and compass awakening.","color":"dark_gray"}]

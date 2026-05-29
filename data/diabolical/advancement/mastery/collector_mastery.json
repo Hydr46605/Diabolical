@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:acts/mastery",
+  "display": {
+    "icon": {
+      "id": "minecraft:skeleton_skull"
+    },
+    "title": {
+      "text": "Audited And Answered",
+      "color": "dark_red"
+    },
+    "description": {
+      "text": "Witness an Infernal Audit and defeat a Debt Collector."
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

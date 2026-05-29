@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:contracts/unlocked",
+  "display": {
+    "icon": {
+      "id": "minecraft:blaze_powder"
+    },
+    "title": {
+      "text": "Pact of Embers",
+      "color": "gold"
+    },
+    "description": {
+      "text": "Sign the fire pact: temporary flame safety in exchange for debt and weakness in water."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

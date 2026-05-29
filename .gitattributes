@@ -1,0 +1,16 @@
+* text=auto eol=lf
+
+*.mcfunction text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.sh text eol=lf
+
+*.png binary
+*.nbt binary
+*.zip binary
+
+dist/ export-ignore
+build/ export-ignore
+world/ export-ignore
+logs/ export-ignore
+crash-reports/ export-ignore

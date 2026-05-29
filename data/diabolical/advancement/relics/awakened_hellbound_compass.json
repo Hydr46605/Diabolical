@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:relics/hellbound_compass",
+  "display": {
+    "icon": {
+      "id": "minecraft:echo_shard"
+    },
+    "title": {
+      "text": "Awakened Compass",
+      "color": "dark_red"
+    },
+    "description": {
+      "text": "Awaken a Hellbound Compass into a charged recovery relic."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

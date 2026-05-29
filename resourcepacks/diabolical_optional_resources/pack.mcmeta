@@ -1,0 +1,19 @@
+{
+  "id": "diabolical_optional_resources",
+  "pack": {
+    "description": "Diabolical optional item visuals",
+    "pack_format": 63,
+    "supported_formats": {
+      "min_inclusive": 63,
+      "max_inclusive": 64
+    },
+    "min_format": [
+      63,
+      0
+    ],
+    "max_format": [
+      64,
+      0
+    ]
+  }
+}

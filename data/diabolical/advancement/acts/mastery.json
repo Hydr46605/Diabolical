@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:root",
+  "display": {
+    "icon": {
+      "id": "minecraft:nether_star"
+    },
+    "title": {
+      "text": "Mastery",
+      "color": "dark_red"
+    },
+    "description": {
+      "text": "Hidden challenges reward controlled debt, recovery, collectors, relics, and major contracts."
+    },
+    "frame": "challenge",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "loaded": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

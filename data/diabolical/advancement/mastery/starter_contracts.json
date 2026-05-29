@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:acts/mastery",
+  "display": {
+    "icon": {
+      "id": "minecraft:netherite_scrap"
+    },
+    "title": {
+      "text": "Every First Offer",
+      "color": "dark_red"
+    },
+    "description": {
+      "text": "Sign each starter contract at least once."
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

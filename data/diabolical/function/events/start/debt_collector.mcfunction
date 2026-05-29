@@ -1,0 +1,7 @@
+# Starts a targeted Debt Collector encounter when severe debt is present.
+execute unless score #events diab.config matches 1 run function diabolical:events/start/fail_disabled
+execute if score #events diab.config matches 1 if score #event.active diab.event matches 1 run function diabolical:events/start/fail_active
+execute if score #events diab.config matches 1 unless score #event.active diab.event matches 1 if score #collector.active diab.event matches 1 run function diabolical:events/start/fail_active
+execute if score #events diab.config matches 1 unless score #event.active diab.event matches 1 unless score #collector.active diab.event matches 1 if score #collector.cooldown diab.event matches 1.. run function diabolical:events/start/fail_collector_cooldown
+execute if score #events diab.config matches 1 unless score #event.active diab.event matches 1 unless score #collector.active diab.event matches 1 unless score #collector.cooldown diab.event matches 1.. unless score @s diab.debt >= #collector.target_debt diab.event run function diabolical:events/start/fail_low_debt
+execute if score #events diab.config matches 1 unless score #event.active diab.event matches 1 unless score #collector.active diab.event matches 1 unless score #collector.cooldown diab.event matches 1.. if score @s diab.debt >= #collector.target_debt diab.event run function diabolical:events/start/apply/debt_collector

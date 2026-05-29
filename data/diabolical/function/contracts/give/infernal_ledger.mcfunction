@@ -1,0 +1,2 @@
+# Grants the item-driven contract interface.
+give @s minecraft:carrot_on_a_stick[minecraft:custom_data={diabolical:{tool:"infernal_ledger",version:1}},minecraft:custom_model_data={strings:["diabolical:infernal_ledger"]},minecraft:item_name='{"text":"Infernal Ledger","color":"dark_red","italic":false}',minecraft:lore=['{"text":"Right-click to review contracts.","color":"gray","italic":false}','{"text":"Signs, payments, and revokes run through this ledger.","color":"dark_gray","italic":false}']] 1

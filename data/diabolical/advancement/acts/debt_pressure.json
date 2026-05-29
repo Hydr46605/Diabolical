@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:rituals/first_signature",
+  "display": {
+    "icon": {
+      "id": "minecraft:bone_meal"
+    },
+    "title": {
+      "text": "Act II: Debt Pressure",
+      "color": "gold"
+    },
+    "description": {
+      "text": "Use recovery rituals, payments, and risky trials to control the bill."
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

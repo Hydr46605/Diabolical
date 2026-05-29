@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:acts/mastery",
+  "display": {
+    "icon": {
+      "id": "minecraft:echo_shard"
+    },
+    "title": {
+      "text": "Three Bad Ideas",
+      "color": "dark_purple"
+    },
+    "description": {
+      "text": "Use all three starter relics."
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

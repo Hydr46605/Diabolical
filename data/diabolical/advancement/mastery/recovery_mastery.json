@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:acts/mastery",
+  "display": {
+    "icon": {
+      "id": "minecraft:bell"
+    },
+    "title": {
+      "text": "Accountant Of Ash And Bell",
+      "color": "aqua"
+    },
+    "description": {
+      "text": "Use Ashes Paid, Bell of Remission, and an Awakened Hellbound Compass."
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
