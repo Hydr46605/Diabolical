@@ -24,6 +24,8 @@ visuals.
 - contracts with real costs
 - sin, debt, and recovery loops
 - cursed relics and an Infernal Ledger
+- The Sinbound Court with custom vanilla mobs for high-sin players
+- craftable court items and controlled mob trials
 - Diabolical Night, Debt Collectors, and audit warnings
 - small Infernal Ruins in newly generated overworld chunks
 - optional 16x16 item textures
@@ -33,10 +35,10 @@ visuals.
 Build the data pack:
 
 ```sh
-scripts/package.sh 0.3.0-dev
+scripts/package.sh 0.4.0-dev
 ```
 
-Put `dist/Diabolical-0.3.0-dev.zip` in your world's `datapacks/` folder, then
+Put `dist/Diabolical-0.4.0-dev.zip` in your world's `datapacks/` folder, then
 run:
 
 ```mcfunction
@@ -59,16 +61,17 @@ vanilla-sized custom textures.
 Build it separately:
 
 ```sh
-scripts/package_resourcepack.sh 0.3.0-dev
+scripts/package_resourcepack.sh 0.4.0-dev
 ```
 
-Install `dist/Diabolical-optional-resources-0.3.0-dev.zip` as a normal resource
+Install `dist/Diabolical-optional-resources-0.4.0-dev.zip` as a normal resource
 pack. Do not put it in `datapacks/`.
 
 ## Useful Links
 
 - [Getting Started](docs/getting-started.md)
 - [Server Guide](docs/guides/server-admin.md)
+- [Sinbound Court](docs/guides/sinbound-court.md)
 - [Optional Resource Pack](docs/guides/optional-resource-pack.md)
 - [Infernal Ruins](docs/guides/structures.md)
 
@@ -89,9 +92,10 @@ git diff --check
 bash -n scripts/validate.sh scripts/package.sh scripts/package_resourcepack.sh
 ```
 
-Static checks validate file structure, JSON, function references, resource-pack
-models, 16x16 item textures, structure links, and package layout. A real
-Minecraft world is still needed for final balance and generation testing.
+Static checks validate file structure, JSON, function references, recipes,
+resource-pack models, 16x16 item textures, structure links, and package layout.
+A real Minecraft world is still needed for final balance and generation
+testing.
 
 ## License
 

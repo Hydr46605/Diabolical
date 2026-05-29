@@ -6,4 +6,5 @@ tellraw @s [{"text":"First Signature: paper, ink sac, and gold nugget.","color":
 tellraw @s [{"text":"Ashes Paid: bone meal, lapis lazuli, and water bucket. Pays debt.","color":"gray"}]
 tellraw @s [{"text":"Bell of Remission: bell, amethyst shard, and emerald. Pays debt and cleanses sin.","color":"gray"}]
 tellraw @s [{"text":"Red Moon Invitation: wither rose, rotten flesh, and redstone. Starts danger deliberately.","color":"gray"}]
+tellraw @s [{"text":"Sinbound Court: Black Writ, Court Candle, Bailiff Bell, Sinners Effigy, and Ashen Brief create controlled sin trials or recovery.","color":"gray"}]
 tellraw @s [{"text":"Contracts are managed through this ledger. Debug and admin functions remain separate.","color":"dark_gray"}]

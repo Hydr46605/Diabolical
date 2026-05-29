@@ -10,4 +10,5 @@ effect give @s minecraft:weakness 12 0 true
 tellraw @s [{"text":"[Diabolical] ","color":"dark_red"},{"text":"The failed invitation leaves a stain and a small balance. The world remains intact.","color":"gray"}]
 playsound minecraft:entity.wither.ambient master @s ~ ~ ~ 0.35 1.4
 particle minecraft:soul_fire_flame ~ ~1 ~ 0.7 0.5 0.7 0.03 24 force @s
+execute if score #mobs diab.config matches 1 unless score #court.active diab.mob matches 1 if score @s diab.sin matches 25.. run function diabolical:mobs/summon/contract_imp
 scoreboard players reset #amount diab.tmp

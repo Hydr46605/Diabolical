@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:book",
+    "minecraft:bone_meal",
+    "minecraft:glow_ink_sac",
+    "minecraft:amethyst_shard"
+  ],
+  "result": {
+    "id": "minecraft:book",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "diabolical": {
+          "court_item": "ashen_brief",
+          "version": 1
+        }
+      },
+      "minecraft:item_name": {
+        "text": "Ashen Brief",
+        "color": "gray",
+        "italic": false
+      },
+      "minecraft:lore": [
+        {
+          "text": "Files remission evidence against your sin.",
+          "color": "gray",
+          "italic": false
+        }
+      ]
+    }
+  }
+}

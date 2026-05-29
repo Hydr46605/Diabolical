@@ -54,6 +54,7 @@ command -v python3 >/dev/null 2>&1 || fail "python3 is required"
 [[ -f docs/README.md ]] || fail "missing public docs index"
 [[ -f docs/getting-started.md ]] || fail "missing getting started guide"
 [[ -f docs/guides/server-admin.md ]] || fail "missing server guide"
+[[ -f docs/guides/sinbound-court.md ]] || fail "missing Sinbound Court guide"
 [[ -f docs/guides/optional-resource-pack.md ]] || fail "missing optional resource pack guide"
 [[ -f docs/guides/structures.md ]] || fail "missing structures guide"
 [[ -f docs/assets/diabolical-logo.png ]] || fail "missing README logo asset"
@@ -79,12 +80,13 @@ jq -e '.pack.supported_formats.min_inclusive == 80' pack.mcmeta >/dev/null || fa
 jq -e '.pack.supported_formats.max_inclusive == 88' pack.mcmeta >/dev/null || fail "maximum supported format must be 88"
 jq -e '.pack.min_format == [80, 0]' pack.mcmeta >/dev/null || fail "min_format must be [80, 0]"
 jq -e '.pack.max_format == [88, 0]' pack.mcmeta >/dev/null || fail "max_format must be [88, 0]"
-grep -Fq 'version:"0.3.0-dev"' data/diabolical/function/config/defaults.mcfunction || fail "config storage version must be 0.3.0-dev"
-grep -Fq 'version:"0.3.0-dev",phase:21' data/diabolical/function/core/init.mcfunction || fail "runtime storage version must be 0.3.0-dev phase 21"
-grep -Fq 'version:"0.3.0-dev",phase:21' data/diabolical/function/contracts/init.mcfunction || fail "contracts storage version must be 0.3.0-dev phase 21"
-grep -Fq 'version:"0.3.0-dev",phase:21' data/diabolical/function/rituals/init.mcfunction || fail "rituals storage version must be 0.3.0-dev phase 21"
-grep -Fq 'version:"0.3.0-dev",phase:21' data/diabolical/function/relics/init.mcfunction || fail "relics storage version must be 0.3.0-dev phase 21"
-grep -Fq 'version:"0.3.0-dev",phase:21' data/diabolical/function/events/init.mcfunction || fail "events storage version must be 0.3.0-dev phase 21"
+grep -Fq 'version:"0.4.0-dev"' data/diabolical/function/config/defaults.mcfunction || fail "config storage version must be 0.4.0-dev"
+grep -Fq 'version:"0.4.0-dev",phase:22' data/diabolical/function/core/init.mcfunction || fail "runtime storage version must be 0.4.0-dev phase 22"
+grep -Fq 'version:"0.4.0-dev",phase:22' data/diabolical/function/contracts/init.mcfunction || fail "contracts storage version must be 0.4.0-dev phase 22"
+grep -Fq 'version:"0.4.0-dev",phase:22' data/diabolical/function/rituals/init.mcfunction || fail "rituals storage version must be 0.4.0-dev phase 22"
+grep -Fq 'version:"0.4.0-dev",phase:22' data/diabolical/function/relics/init.mcfunction || fail "relics storage version must be 0.4.0-dev phase 22"
+grep -Fq 'version:"0.4.0-dev",phase:22' data/diabolical/function/events/init.mcfunction || fail "events storage version must be 0.4.0-dev phase 22"
+grep -Fq 'version:"0.4.0-dev",phase:22' data/diabolical/function/mobs/init.mcfunction || fail "mobs storage version must be 0.4.0-dev phase 22"
 check_png docs/assets/diabolical-logo.png
 check_png docs/assets/diabolical-items-preview.png
 
@@ -221,6 +223,26 @@ note "checking structure and loot table references"
 while IFS= read -r -d '' file; do
   jq -e '.type == "minecraft:chest" and (.pools | type == "array") and (.pools | length > 0)' "$file" >/dev/null || fail "bad loot table shape: $file"
 done < <(find data -type f -path '*/loot_table/*.json' -print0)
+
+note "checking recipes"
+while IFS= read -r -d '' file; do
+  jq -e '(.type == "minecraft:crafting_shaped" or .type == "minecraft:crafting_shapeless") and (.result.id | type == "string") and (.result.count | type == "number")' "$file" >/dev/null || fail "bad recipe shape: $file"
+done < <(find data -type f -path '*/recipe/*.json' -print0)
+
+for court_item in black_writ court_candle bailiff_bell sinners_effigy ashen_brief; do
+  recipe_file="data/diabolical/recipe/${court_item}.json"
+  give_file="data/diabolical/function/mobs/give/${court_item}.mcfunction"
+  use_file="data/diabolical/function/mobs/use/${court_item}.mcfunction"
+
+  [[ -f "$recipe_file" ]] || fail "missing court item recipe: $recipe_file"
+  [[ -f "$give_file" ]] || fail "missing court item grant function: $give_file"
+  [[ -f "$use_file" ]] || fail "missing court item use function: $use_file"
+  jq -e --arg court_item "$court_item" '.result.components."minecraft:custom_data".diabolical.court_item == $court_item' "$recipe_file" >/dev/null || fail "court item recipe missing custom_data: $recipe_file"
+  grep -q "minecraft:custom_data={diabolical:{court_item:\"${court_item}\"" "$give_file" || fail "court item grant missing custom data: $give_file"
+done
+
+[[ -f data/diabolical/function/mobs/give/accusers_seal.mcfunction ]] || fail "missing Accusers Seal grant function"
+grep -q 'minecraft:custom_data={diabolical:{court_item:"accusers_seal"' data/diabolical/function/mobs/give/accusers_seal.mcfunction || fail "Accusers Seal grant missing custom data"
 
 while IFS= read -r -d '' file; do
   jq -e '.type == "minecraft:jigsaw" and .start_pool and .project_start_to_heightmap == "WORLD_SURFACE_WG"' "$file" >/dev/null || fail "bad jigsaw structure definition: $file"

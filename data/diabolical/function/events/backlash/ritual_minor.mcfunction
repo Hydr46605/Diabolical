@@ -8,4 +8,5 @@ effect give @s minecraft:darkness 4 0 true
 tellraw @s [{"text":"[Diabolical] ","color":"dark_red"},{"text":"Backlash records one extra debt. No blocks were claimed.","color":"gray"}]
 playsound minecraft:block.soul_sand.break master @s ~ ~ ~ 0.5 0.7
 particle minecraft:ash ~ ~1 ~ 0.6 0.4 0.6 0.02 18 force @s
+particle minecraft:soul ~ ~1 ~ 0.4 0.3 0.4 0.01 8 force @s
 scoreboard players reset #amount diab.tmp

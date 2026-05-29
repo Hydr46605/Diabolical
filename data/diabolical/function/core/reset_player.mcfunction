@@ -15,6 +15,7 @@ tag @s remove diab.event_target
 tag @s remove diab.event_survivor
 tag @s remove diab.event_forced
 tag @s remove diab.collector_target
+tag @s remove diab.court_target
 
 scoreboard players set @s diab.sin 0
 scoreboard players set @s diab.debt 0
@@ -28,4 +29,9 @@ scoreboard players set @s diab.accept 0
 scoreboard players set @s diab.pay 0
 scoreboard players set @s diab.revoke 0
 scoreboard players set @s diab.relic 0
+scoreboard players set @s diab.court 0
 scoreboard players set @s diab.kills 0
+scoreboard players set @s diab.kwither 0
+scoreboard players set @s diab.kphantom 0
+scoreboard players set @s diab.kwitch 0
+scoreboard players set @s diab.kzombie 0

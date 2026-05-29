@@ -18,3 +18,6 @@ title @a subtitle {"text":"The ledger hunts open balances.","color":"gray"}
 title @a title {"text":"Diabolical Night","color":"dark_red","bold":true}
 execute as @a at @s run playsound minecraft:block.bell.use master @s ~ ~ ~ 0.8 0.6
 execute as @a at @s run particle minecraft:soul_fire_flame ~ ~1 ~ 0.5 0.4 0.5 0.02 24 force @s
+execute as @a[tag=diab.event_target] at @s run particle minecraft:ash ~ ~1 ~ 0.8 0.5 0.8 0.02 28 force @s
+execute if score #event.profile diab.event matches 2.. as @a[tag=diab.event_target] at @s run particle minecraft:soul ~ ~1 ~ 0.7 0.4 0.7 0.01 16 force @s
+execute if score #event.profile diab.event matches 3.. as @a[tag=diab.event_target] at @s run particle minecraft:soul ~ ~1 ~ 0.9 0.5 0.9 0.02 24 force @s

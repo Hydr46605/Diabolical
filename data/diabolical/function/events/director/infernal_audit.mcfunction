@@ -7,3 +7,6 @@ tellraw @a [{"text":"[Diabolical] ","color":"dark_red"},{"text":"Infernal Audit:
 title @a actionbar {"text":"Infernal Audit warning issued.","color":"dark_red"}
 execute as @a at @s run playsound minecraft:block.bell.resonate master @s ~ ~ ~ 0.8 0.6
 execute as @a at @s run particle minecraft:ash ~ ~1 ~ 0.8 0.5 0.8 0.02 16 force @s
+execute as @a[scores={diab.debt=50..}] at @s run particle minecraft:soul ~ ~1 ~ 0.6 0.5 0.6 0.01 12 force @s
+execute as @a[scores={diab.sin=75..}] at @s run particle minecraft:soul_fire_flame ~ ~1 ~ 0.5 0.4 0.5 0.02 12 force @s
+execute if score #mobs diab.config matches 1 unless score #court.active diab.mob matches 1 as @a[scores={diab.sin=75..},limit=1,sort=random] run function diabolical:mobs/summon/ashen_advocate

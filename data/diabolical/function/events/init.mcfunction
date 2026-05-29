@@ -1,5 +1,5 @@
 # Events module bootstrap.
-data merge storage diabolical:events {version:"0.3.0-dev",phase:21,active_ids:["diabolical_night","debt_collector","infernal_audit"],diabolical_night:{duration_ticks:900,reward_debt_payment:4,cooldown_ticks:6000,target_debt_min:8,target_sin_min:25,trigger:"red_ledger_minor"},debt_collector:{duration_ticks:1200,reward_debt_payment:8,cooldown_ticks:6000,target_debt_min:50,severe_debt_min:100,trigger:"severe_debt"},director:{enabled:1b,audit_cooldown_ticks:2400,audit_debt_min:120,audit_sin_min:90,backlash_cooldown_ticks:200,last_warning:"none",last_backlash:"none",last_pressure:{debt:0,sin:0,players:0}}}
+data merge storage diabolical:events {version:"0.4.0-dev",phase:22,active_ids:["diabolical_night","debt_collector","infernal_audit"],diabolical_night:{duration_ticks:900,reward_debt_payment:4,cooldown_ticks:6000,target_debt_min:8,target_sin_min:25,trigger:"red_ledger_minor"},debt_collector:{duration_ticks:1200,reward_debt_payment:8,cooldown_ticks:6000,target_debt_min:50,severe_debt_min:100,trigger:"severe_debt"},director:{enabled:1b,audit_cooldown_ticks:2400,audit_debt_min:120,audit_sin_min:90,backlash_cooldown_ticks:200,last_warning:"none",last_backlash:"none",last_pressure:{debt:0,sin:0,players:0}}}
 
 scoreboard players add #event.active diab.event 0
 scoreboard players add #diabolical_night diab.event 0

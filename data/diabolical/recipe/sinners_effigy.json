@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " B ",
+    "RAR",
+    " F "
+  ],
+  "key": {
+    "B": "minecraft:bone",
+    "R": "minecraft:redstone",
+    "A": "minecraft:armor_stand",
+    "F": "minecraft:rotten_flesh"
+  },
+  "result": {
+    "id": "minecraft:armor_stand",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "diabolical": {
+          "court_item": "sinners_effigy",
+          "version": 1
+        }
+      },
+      "minecraft:item_name": {
+        "text": "Sinners Effigy",
+        "color": "dark_purple",
+        "italic": false
+      },
+      "minecraft:lore": [
+        {
+          "text": "Baits a Sin Wraith into a named trial.",
+          "color": "gray",
+          "italic": false
+        }
+      ]
+    }
+  }
+}

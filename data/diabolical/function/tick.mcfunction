@@ -7,3 +7,4 @@ execute if data storage diabolical:runtime enabled if score #rituals diab.config
 execute if data storage diabolical:runtime enabled if score #contracts diab.config matches 1 run function diabolical:contracts/tick
 execute if data storage diabolical:runtime enabled if score #relics diab.config matches 1 run function diabolical:relics/tick
 execute if data storage diabolical:runtime enabled if score #events diab.config matches 1 run function diabolical:events/tick
+execute if data storage diabolical:runtime enabled if score #mobs diab.config matches 1 run function diabolical:mobs/tick

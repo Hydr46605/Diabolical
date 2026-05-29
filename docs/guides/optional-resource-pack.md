@@ -6,7 +6,7 @@ Primer, Ledger, and relic items look.
 Build it with:
 
 ```sh
-scripts/package_resourcepack.sh 0.3.0-dev
+scripts/package_resourcepack.sh 0.4.0-dev
 ```
 
 Install the zip as a normal resource pack. Do not place it in the world's

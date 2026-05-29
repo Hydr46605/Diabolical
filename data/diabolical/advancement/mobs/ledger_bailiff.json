@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:mobs/contract_imp",
+  "display": {
+    "icon": {
+      "id": "minecraft:bell"
+    },
+    "title": {
+      "text": "Ledger Bailiff",
+      "color": "dark_red"
+    },
+    "description": {
+      "text": "Defeat a court officer sent for mixed sin and debt."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

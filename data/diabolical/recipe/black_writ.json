@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IRI",
+    " P ",
+    " G "
+  ],
+  "key": {
+    "I": "minecraft:ink_sac",
+    "R": "minecraft:redstone",
+    "P": "minecraft:paper",
+    "G": "minecraft:gold_nugget"
+  },
+  "result": {
+    "id": "minecraft:paper",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "diabolical": {
+          "court_item": "black_writ",
+          "version": 1
+        }
+      },
+      "minecraft:item_name": {
+        "text": "Black Writ",
+        "color": "dark_red",
+        "italic": false
+      },
+      "minecraft:lore": [
+        {
+          "text": "Names your case before The Accuser.",
+          "color": "gray",
+          "italic": false
+        }
+      ]
+    }
+  }
+}

@@ -16,7 +16,7 @@ function diabolical:config/status
 Expected result:
 
 - status commands print without errors
-- contracts, rituals, relics, and events are enabled
+- contracts, rituals, relics, events, and mobs are enabled
 - new players receive an Infernal Primer
 
 ## Controls
@@ -29,11 +29,19 @@ function diabolical:config/enable/all
 function diabolical:config/status
 ```
 
+The Sinbound Court can also be paused independently:
+
+```mcfunction
+function diabolical:config/disable/mobs
+function diabolical:config/enable/mobs
+```
+
 Reset state during tests:
 
 ```mcfunction
 function diabolical:debug/reset_self
 function diabolical:debug/reset_all
+function diabolical:mobs/debug/stop_active
 function diabolical:uninstall
 ```
 

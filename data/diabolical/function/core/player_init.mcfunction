@@ -12,7 +12,12 @@ scoreboard players set @s diab.accept 0
 scoreboard players set @s diab.pay 0
 scoreboard players set @s diab.revoke 0
 scoreboard players set @s diab.relic 0
+scoreboard players set @s diab.court 0
 scoreboard players set @s diab.kills 0
+scoreboard players set @s diab.kwither 0
+scoreboard players set @s diab.kphantom 0
+scoreboard players set @s diab.kwitch 0
+scoreboard players set @s diab.kzombie 0
 
 function diabolical:progression/give/infernal_primer
 tellraw @s [{"text":"[Diabolical] ","color":"dark_red"},{"text":"You have been marked by the ledger. The Infernal Primer explains the first altar.","color":"gray"}]

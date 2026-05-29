@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.4.0-dev
+
+- Added The Sinbound Court update.
+- Added a dedicated mobs module for Contract Imps, Sin Wraiths, Ledger
+  Bailiffs, Ashen Advocates, and The Accuser.
+- Added craftable court items: Black Writ, Court Candle, Bailiff Bell,
+  Sinners Effigy, and Ashen Brief.
+- Added a court page to the Infernal Ledger and a `diab.court` trigger route.
+- Added Sinbound Court advancements and a hidden mastery challenge.
+- Improved Diabolical Night, Infernal Audit, Debt Collector, and ritual
+  backlash particles and feedback.
+- Added mob config controls, debug helpers, recipe validation, and versioned
+  runtime storage for phase 22.
+
 ## 0.3.0-dev
 
 - Reworked the public README and docs.

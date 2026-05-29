@@ -4,12 +4,14 @@ scoreboard players enable @a diab.accept
 scoreboard players enable @a diab.pay
 scoreboard players enable @a diab.revoke
 scoreboard players enable @a diab.relic
+scoreboard players enable @a diab.court
 
 execute as @a[scores={diab.page=1}] run function diabolical:interface/ledger/status
 execute as @a[scores={diab.page=2}] run function diabolical:interface/ledger/contracts
 execute as @a[scores={diab.page=3}] run function diabolical:interface/ledger/payments
 execute as @a[scores={diab.page=4}] run function diabolical:interface/ledger/relics
 execute as @a[scores={diab.page=5}] run function diabolical:interface/ledger/help
+execute as @a[scores={diab.page=6}] run function diabolical:interface/ledger/court
 
 execute if score #contracts diab.config matches 1 as @a[scores={diab.accept=1}] run function diabolical:contracts/accept/pact_of_embers
 execute if score #contracts diab.config matches 1 as @a[scores={diab.accept=2}] run function diabolical:contracts/accept/pact_of_hunger
@@ -43,6 +45,14 @@ execute if score #relics diab.config matches 1 as @a[scores={diab.relic=4}] run 
 execute if score #relics diab.config matches 1 as @a[scores={diab.relic=5}] run function diabolical:relics/awaken/hellbound_compass
 execute if score #relics diab.config matches 0 as @a[scores={diab.relic=1..}] run function diabolical:interface/ledger/disabled/relics
 
+execute if score #mobs diab.config matches 1 as @a[scores={diab.court=1}] run function diabolical:mobs/use/black_writ
+execute if score #mobs diab.config matches 1 as @a[scores={diab.court=2}] run function diabolical:mobs/use/court_candle
+execute if score #mobs diab.config matches 1 as @a[scores={diab.court=3}] run function diabolical:mobs/use/bailiff_bell
+execute if score #mobs diab.config matches 1 as @a[scores={diab.court=4}] run function diabolical:mobs/use/sinners_effigy
+execute if score #mobs diab.config matches 1 as @a[scores={diab.court=5}] run function diabolical:mobs/use/ashen_brief
+execute if score #mobs diab.config matches 1 as @a[scores={diab.court=6}] run function diabolical:mobs/use/accusers_seal
+execute if score #mobs diab.config matches 0 as @a[scores={diab.court=1..}] run function diabolical:interface/ledger/disabled/mobs
+
 execute as @a[scores={diab.ledger=1..},nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{diabolical:{tool:"infernal_ledger"}}}}}] run function diabolical:interface/ledger/menu
 
 scoreboard players set @a[scores={diab.page=1..}] diab.page 0
@@ -50,4 +60,5 @@ scoreboard players set @a[scores={diab.accept=1..}] diab.accept 0
 scoreboard players set @a[scores={diab.pay=1..}] diab.pay 0
 scoreboard players set @a[scores={diab.revoke=1..}] diab.revoke 0
 scoreboard players set @a[scores={diab.relic=1..}] diab.relic 0
+scoreboard players set @a[scores={diab.court=1..}] diab.court 0
 scoreboard players set @a[scores={diab.ledger=1..}] diab.ledger 0

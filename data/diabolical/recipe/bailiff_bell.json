@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " I ",
+    "PBP",
+    " N "
+  ],
+  "key": {
+    "I": "minecraft:iron_nugget",
+    "P": "minecraft:paper",
+    "B": "minecraft:bell",
+    "N": "minecraft:bone"
+  },
+  "result": {
+    "id": "minecraft:bell",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "diabolical": {
+          "court_item": "bailiff_bell",
+          "version": 1
+        }
+      },
+      "minecraft:item_name": {
+        "text": "Bailiff Bell",
+        "color": "gold",
+        "italic": false
+      },
+      "minecraft:lore": [
+        {
+          "text": "Calls a Ledger Bailiff for a controlled trial.",
+          "color": "gray",
+          "italic": false
+        }
+      ]
+    }
+  }
+}

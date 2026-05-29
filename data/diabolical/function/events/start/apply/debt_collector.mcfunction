@@ -21,3 +21,5 @@ tellraw @s [{"text":"[Diabolical] ","color":"dark_red"},{"text":"A Debt Collecto
 execute if score @s diab.debt >= #collector.severe_debt diab.event run tellraw @s [{"text":"[Diabolical] ","color":"dark_red"},{"text":"Your balance is severe enough for a senior collector profile.","color":"red"}]
 title @s actionbar {"text":"Debt Collector dispatched.","color":"dark_red"}
 playsound minecraft:block.bell.use master @s ~ ~ ~ 0.8 0.5
+execute at @s run particle minecraft:soul ~ ~1 ~ 0.7 0.5 0.7 0.01 22 force @s
+execute at @s run particle minecraft:ash ~ ~1 ~ 0.9 0.6 0.9 0.02 30 force @s
