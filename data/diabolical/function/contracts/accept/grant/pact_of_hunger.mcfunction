@@ -15,3 +15,4 @@ function diabolical:core/add_debt
 
 effect give @s minecraft:strength 20 0 true
 tellraw @s [{"text":"[Diabolical] ","color":"dark_red"},{"text":"Signed: Pact of Hunger. Right-click the Infernal Ledger to pay or revoke.","color":"gray"}]
+function diabolical:feedback/contract_signed

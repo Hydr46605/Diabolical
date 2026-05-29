@@ -17,6 +17,11 @@
           "version": 1
         }
       },
+      "minecraft:custom_model_data": {
+        "strings": [
+          "diabolical:ashen_brief"
+        ]
+      },
       "minecraft:item_name": {
         "text": "Ashen Brief",
         "color": "gray",

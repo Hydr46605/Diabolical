@@ -28,17 +28,17 @@ visuals.
 - craftable court items and controlled mob trials
 - Diabolical Night, Debt Collectors, and audit warnings
 - small Infernal Ruins in newly generated overworld chunks
-- optional 16x16 item textures
+- optional 16x16 item textures for ledgers, relics, and court items
 
 ## Getting Started
 
 Build the data pack:
 
 ```sh
-scripts/package.sh 0.4.0-dev
+scripts/package.sh 0.4.1-dev
 ```
 
-Put `dist/Diabolical-0.4.0-dev.zip` in your world's `datapacks/` folder, then
+Put `dist/Diabolical-0.4.1-dev.zip` in your world's `datapacks/` folder, then
 run:
 
 ```mcfunction
@@ -51,8 +51,8 @@ The first loop is explained in [Getting Started](docs/getting-started.md).
 
 ## Optional Resource Pack
 
-The sidecar resource pack gives the Ledger, Primer, relics, and compass items
-vanilla-sized custom textures.
+The sidecar resource pack gives the Ledger, Primer, relics, compass items, and
+Sinbound Court items vanilla-sized custom textures.
 
 <p align="center">
   <img src="docs/assets/diabolical-items-preview.png" alt="Diabolical optional item textures" width="520">
@@ -61,10 +61,10 @@ vanilla-sized custom textures.
 Build it separately:
 
 ```sh
-scripts/package_resourcepack.sh 0.4.0-dev
+scripts/package_resourcepack.sh 0.4.1-dev
 ```
 
-Install `dist/Diabolical-optional-resources-0.4.0-dev.zip` as a normal resource
+Install `dist/Diabolical-optional-resources-0.4.1-dev.zip` as a normal resource
 pack. Do not put it in `datapacks/`.
 
 ## Useful Links

@@ -63,6 +63,11 @@ has_entry "assets/diabolical/items/infernal_ledger.json" || {
   exit 1
 }
 
+has_entry "assets/diabolical/items/black_writ.json" || {
+  printf 'package-resourcepack: error: court item visuals are missing from zip root\n' >&2
+  exit 1
+}
+
 if printf '%s\n' "${zip_entries[@]}" | grep -Eq '^[^/]+/pack\.mcmeta$'; then
   printf 'package-resourcepack: error: zip contains a nested pack.mcmeta; package the resource pack root directly\n' >&2
   exit 1

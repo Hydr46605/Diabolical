@@ -22,6 +22,11 @@
           "version": 1
         }
       },
+      "minecraft:custom_model_data": {
+        "strings": [
+          "diabolical:black_writ"
+        ]
+      },
       "minecraft:item_name": {
         "text": "Black Writ",
         "color": "dark_red",

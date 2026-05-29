@@ -80,13 +80,13 @@ jq -e '.pack.supported_formats.min_inclusive == 80' pack.mcmeta >/dev/null || fa
 jq -e '.pack.supported_formats.max_inclusive == 88' pack.mcmeta >/dev/null || fail "maximum supported format must be 88"
 jq -e '.pack.min_format == [80, 0]' pack.mcmeta >/dev/null || fail "min_format must be [80, 0]"
 jq -e '.pack.max_format == [88, 0]' pack.mcmeta >/dev/null || fail "max_format must be [88, 0]"
-grep -Fq 'version:"0.4.0-dev"' data/diabolical/function/config/defaults.mcfunction || fail "config storage version must be 0.4.0-dev"
-grep -Fq 'version:"0.4.0-dev",phase:22' data/diabolical/function/core/init.mcfunction || fail "runtime storage version must be 0.4.0-dev phase 22"
-grep -Fq 'version:"0.4.0-dev",phase:22' data/diabolical/function/contracts/init.mcfunction || fail "contracts storage version must be 0.4.0-dev phase 22"
-grep -Fq 'version:"0.4.0-dev",phase:22' data/diabolical/function/rituals/init.mcfunction || fail "rituals storage version must be 0.4.0-dev phase 22"
-grep -Fq 'version:"0.4.0-dev",phase:22' data/diabolical/function/relics/init.mcfunction || fail "relics storage version must be 0.4.0-dev phase 22"
-grep -Fq 'version:"0.4.0-dev",phase:22' data/diabolical/function/events/init.mcfunction || fail "events storage version must be 0.4.0-dev phase 22"
-grep -Fq 'version:"0.4.0-dev",phase:22' data/diabolical/function/mobs/init.mcfunction || fail "mobs storage version must be 0.4.0-dev phase 22"
+grep -Fq 'version:"0.4.1-dev"' data/diabolical/function/config/defaults.mcfunction || fail "config storage version must be 0.4.1-dev"
+grep -Fq 'version:"0.4.1-dev",phase:23' data/diabolical/function/core/init.mcfunction || fail "runtime storage version must be 0.4.1-dev phase 23"
+grep -Fq 'version:"0.4.1-dev",phase:23' data/diabolical/function/contracts/init.mcfunction || fail "contracts storage version must be 0.4.1-dev phase 23"
+grep -Fq 'version:"0.4.1-dev",phase:23' data/diabolical/function/rituals/init.mcfunction || fail "rituals storage version must be 0.4.1-dev phase 23"
+grep -Fq 'version:"0.4.1-dev",phase:23' data/diabolical/function/relics/init.mcfunction || fail "relics storage version must be 0.4.1-dev phase 23"
+grep -Fq 'version:"0.4.1-dev",phase:23' data/diabolical/function/events/init.mcfunction || fail "events storage version must be 0.4.1-dev phase 23"
+grep -Fq 'version:"0.4.1-dev",phase:23' data/diabolical/function/mobs/init.mcfunction || fail "mobs storage version must be 0.4.1-dev phase 23"
 check_png docs/assets/diabolical-logo.png
 check_png docs/assets/diabolical-items-preview.png
 
@@ -357,7 +357,7 @@ while IFS= read -r -d '' path; do
 done < <(find "$resource_pack_root" -type f -print0)
 
 note "checking optional resource-pack item models"
-for item in infernal_ledger infernal_primer ashen_charm midas_coin hellbound_compass awakened_hellbound_compass; do
+for item in infernal_ledger infernal_primer ashen_charm midas_coin hellbound_compass awakened_hellbound_compass black_writ court_candle bailiff_bell sinners_effigy ashen_brief accusers_seal; do
   item_file="${resource_pack_root}/assets/diabolical/items/${item}.json"
   model_file="${resource_pack_root}/assets/diabolical/models/item/${item}.json"
   texture_file="${resource_pack_root}/assets/diabolical/textures/item/${item}.png"
@@ -367,6 +367,30 @@ for item in infernal_ledger infernal_primer ashen_charm midas_coin hellbound_com
   check_png_size "$texture_file" 16 16
   jq -e --arg model "diabolical:item/${item}" '.model.type == "minecraft:model" and .model.model == $model' "$item_file" >/dev/null || fail "bad namespaced item model definition: $item_file"
   jq -e --arg texture "diabolical:item/${item}" '.parent == "minecraft:item/generated" and .textures.layer0 == $texture' "$model_file" >/dev/null || fail "bad namespaced raw item model texture: $model_file"
+done
+
+for vanilla_item in book carrot_on_a_stick fire_charge gold_nugget recovery_compass paper red_candle bell armor_stand netherite_scrap; do
+  [[ -f "${resource_pack_root}/assets/minecraft/items/${vanilla_item}.json" ]] || fail "missing vanilla item override: ${vanilla_item}"
+done
+
+declare -A visual_item_bases=(
+  [infernal_primer]=book
+  [ashen_brief]=book
+  [infernal_ledger]=carrot_on_a_stick
+  [ashen_charm]=fire_charge
+  [midas_coin]=gold_nugget
+  [hellbound_compass]=recovery_compass
+  [awakened_hellbound_compass]=recovery_compass
+  [black_writ]=paper
+  [court_candle]=red_candle
+  [bailiff_bell]=bell
+  [sinners_effigy]=armor_stand
+  [accusers_seal]=netherite_scrap
+)
+
+for item in "${!visual_item_bases[@]}"; do
+  file="${resource_pack_root}/assets/minecraft/items/${visual_item_bases[$item]}.json"
+  jq -e --arg when "diabolical:${item}" --arg model "diabolical:item/${item}" '.model.cases[] | select(.when == $when and .model.model == $model)' "$file" >/dev/null || fail "vanilla item override missing custom model case for ${item}: $file"
 done
 
 while IFS= read -r -d '' file; do
@@ -391,6 +415,21 @@ primer_file="data/diabolical/function/progression/give/infernal_primer.mcfunctio
 [[ -f "$primer_file" ]] || fail "missing infernal primer grant function: $primer_file"
 grep -q 'minecraft:custom_data={diabolical:{tool:"infernal_primer"' "$primer_file" || fail "primer grant missing custom data: $primer_file"
 grep -Fq 'minecraft:custom_model_data={strings:["diabolical:infernal_primer"]}' "$primer_file" || fail "primer grant missing namespaced custom model data string: $primer_file"
+
+note "checking court item custom data"
+for court_item in black_writ court_candle bailiff_bell sinners_effigy ashen_brief accusers_seal; do
+  file="data/diabolical/function/mobs/give/${court_item}.mcfunction"
+  [[ -f "$file" ]] || fail "missing court item grant function: $file"
+  grep -q "minecraft:custom_data={diabolical:{court_item:\"${court_item}\"" "$file" || fail "court item grant missing custom data: $file"
+  grep -Fq "minecraft:custom_model_data={strings:[\"diabolical:${court_item}\"]}" "$file" || fail "court item grant missing namespaced custom model data string: $file"
+done
+
+for court_recipe in black_writ court_candle bailiff_bell sinners_effigy ashen_brief; do
+  file="data/diabolical/recipe/${court_recipe}.json"
+  [[ -f "$file" ]] || fail "missing court item recipe: $file"
+  jq -e --arg item "$court_recipe" '.result.components["minecraft:custom_data"].diabolical.court_item == $item' "$file" >/dev/null || fail "court item recipe missing custom data: $file"
+  jq -e --arg cmd "diabolical:${court_recipe}" '.result.components["minecraft:custom_model_data"].strings[0] == $cmd' "$file" >/dev/null || fail "court item recipe missing custom model data string: $file"
+done
 
 note "checking line endings"
 mapfile -t crlf_files < <(find . \

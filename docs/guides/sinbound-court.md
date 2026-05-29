@@ -30,6 +30,9 @@ Crafted court items are used from the Infernal Ledger's Court page while held:
 | Ashen Brief | cleanses sin without starting a fight |
 | Accusers Seal | rare recovery item from The Accuser |
 
+The optional resource pack gives these court items distinct 16x16 models while
+leaving normal vanilla items unchanged.
+
 Operators can grant the craftable items with:
 
 ```mcfunction

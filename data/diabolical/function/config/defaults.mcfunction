@@ -1,5 +1,5 @@
 # Default config. Admin config functions can override system scores later.
-data merge storage diabolical:config {version:"0.4.0-dev",debug:0b}
+data merge storage diabolical:config {version:"0.4.1-dev",debug:0b}
 
 scoreboard players add #config.init diab.config 0
 execute if score #config.init diab.config matches 0 run function diabolical:config/apply_defaults

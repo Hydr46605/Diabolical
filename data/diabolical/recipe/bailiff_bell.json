@@ -22,6 +22,11 @@
           "version": 1
         }
       },
+      "minecraft:custom_model_data": {
+        "strings": [
+          "diabolical:bailiff_bell"
+        ]
+      },
       "minecraft:item_name": {
         "text": "Bailiff Bell",
         "color": "gold",

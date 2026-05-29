@@ -1,0 +1,32 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "cases": [
+      {
+        "when": "diabolical:court_candle",
+        "model": {
+          "type": "minecraft:model",
+          "model": "diabolical:item/court_candle"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/red_candle"
+    }
+  },
+  "__smithed__": {
+    "rules": [
+      {
+        "type": "smithed:replace",
+        "target": "model",
+        "source": {
+          "type": "smithed:reference",
+          "path": "model"
+        }
+      }
+    ]
+  }
+}

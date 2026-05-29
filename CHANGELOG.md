@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.4.1-dev
+
+- Added a feedback pass with one-shot sounds and particles for sin, debt,
+  payments, contract signing and closing, relic activations, event rewards, and
+  Sinbound Court item use and victories.
+- Reworked the optional resource pack with refreshed 16x16 legacy item
+  textures and new court item textures.
+- Added optional visual model data for Black Writ, Court Candle, Bailiff Bell,
+  Sinners Effigy, Ashen Brief, and Accusers Seal.
+- Expanded validation and resource-pack packaging checks for the new visual
+  item coverage.
+- Bumped versioned runtime storage to phase 23.
+
 ## 0.4.0-dev
 
 - Added The Sinbound Court update.

@@ -17,3 +17,4 @@ give @s minecraft:gold_nugget 8
 give @s minecraft:emerald 1
 effect give @s minecraft:luck 20 0 true
 tellraw @s [{"text":"[Diabolical] ","color":"dark_red"},{"text":"Signed: Greed Clause. The ledger pays small coin and records a larger balance.","color":"gray"}]
+function diabolical:feedback/contract_signed

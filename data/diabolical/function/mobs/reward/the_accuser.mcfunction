@@ -7,4 +7,5 @@ execute store result score #amount diab.tmp run data get storage diabolical:mobs
 function diabolical:core/pay_debt
 function diabolical:mobs/give/accusers_seal
 tellraw @s [{"text":"[Diabolical] ","color":"dark_red"},{"text":"The Accuser falls silent. The court leaves a seal behind.","color":"gray"}]
+function diabolical:feedback/court_reward
 function diabolical:mobs/stop/active

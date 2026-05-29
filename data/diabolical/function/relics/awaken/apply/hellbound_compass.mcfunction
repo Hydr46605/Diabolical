@@ -11,3 +11,4 @@ advancement grant @s only diabolical:relics/awakened_hellbound_compass
 function diabolical:advancements/check/starter_relics
 function diabolical:advancements/check/recovery_mastery
 tellraw @s [{"text":"[Diabolical] ","color":"dark_red"},{"text":"The compass wakes with three charges.","color":"gray"}]
+function diabolical:feedback/relic_used

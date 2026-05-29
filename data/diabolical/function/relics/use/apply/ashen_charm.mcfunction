@@ -8,4 +8,5 @@ scoreboard players set @s diab.cooldown 200
 scoreboard players set #amount diab.tmp 5
 function diabolical:core/add_debt
 tellraw @s [{"text":"[Diabolical] ","color":"dark_red"},{"text":"The Ashen Charm burns away and leaves debt behind.","color":"gray"}]
+function diabolical:feedback/relic_used
 function diabolical:relics/break/ashen_charm

@@ -9,3 +9,4 @@ function diabolical:core/add_sin
 scoreboard players set #amount diab.tmp 2
 function diabolical:core/add_debt
 tellraw @s [{"text":"[Diabolical] ","color":"dark_red"},{"text":"The coin answers greed with interest.","color":"gray"}]
+function diabolical:feedback/relic_used

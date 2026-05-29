@@ -10,6 +10,13 @@
           "type": "minecraft:model",
           "model": "diabolical:item/infernal_primer"
         }
+      },
+      {
+        "when": "diabolical:ashen_brief",
+        "model": {
+          "type": "minecraft:model",
+          "model": "diabolical:item/ashen_brief"
+        }
       }
     ],
     "fallback": {

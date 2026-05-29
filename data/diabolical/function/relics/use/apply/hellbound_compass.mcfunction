@@ -9,3 +9,4 @@ function diabolical:core/add_sin
 scoreboard players set #amount diab.tmp 1
 function diabolical:core/add_debt
 tellraw @s [{"text":"[Diabolical] ","color":"dark_red"},{"text":"Debt: ","color":"gray"},{"score":{"name":"@s","objective":"diab.debt"},"color":"white"},{"text":"  Contract debt: ","color":"gray"},{"score":{"name":"@s","objective":"diab.cdebt"},"color":"white"}]
+function diabolical:feedback/relic_used

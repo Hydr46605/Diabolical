@@ -16,6 +16,11 @@
           "version": 1
         }
       },
+      "minecraft:custom_model_data": {
+        "strings": [
+          "diabolical:court_candle"
+        ]
+      },
       "minecraft:item_name": {
         "text": "Court Candle",
         "color": "dark_red",

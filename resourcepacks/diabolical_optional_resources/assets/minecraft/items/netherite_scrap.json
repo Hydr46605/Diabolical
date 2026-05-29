@@ -1,0 +1,32 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "cases": [
+      {
+        "when": "diabolical:accusers_seal",
+        "model": {
+          "type": "minecraft:model",
+          "model": "diabolical:item/accusers_seal"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/netherite_scrap"
+    }
+  },
+  "__smithed__": {
+    "rules": [
+      {
+        "type": "smithed:replace",
+        "target": "model",
+        "source": {
+          "type": "smithed:reference",
+          "path": "model"
+        }
+      }
+    ]
+  }
+}
