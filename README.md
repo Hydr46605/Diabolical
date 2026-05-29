@@ -74,6 +74,7 @@ pack. Do not put it in `datapacks/`.
 - [Sinbound Court](docs/guides/sinbound-court.md)
 - [Optional Resource Pack](docs/guides/optional-resource-pack.md)
 - [Infernal Ruins](docs/guides/structures.md)
+- [Releasing](docs/guides/releasing.md)
 
 ## Technical Notes
 
@@ -87,15 +88,13 @@ pack. Do not put it in `datapacks/`.
 Run the local check before packaging:
 
 ```sh
-scripts/validate.sh
-git diff --check
-bash -n scripts/validate.sh scripts/package.sh scripts/package_resourcepack.sh
+scripts/release.sh 0.4.1-dev
 ```
 
-Static checks validate file structure, JSON, function references, recipes,
-resource-pack models, 16x16 item textures, structure links, and package layout.
-A real Minecraft world is still needed for final balance and generation
-testing.
+The release preflight validates file structure, JSON, function references,
+recipes, resource-pack models, 16x16 item textures, structure links, shell
+syntax, whitespace, and package layout. A real Minecraft world is still needed
+for final balance and generation testing.
 
 ## License
 

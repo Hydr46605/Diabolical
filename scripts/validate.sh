@@ -57,9 +57,14 @@ command -v python3 >/dev/null 2>&1 || fail "python3 is required"
 [[ -f docs/guides/sinbound-court.md ]] || fail "missing Sinbound Court guide"
 [[ -f docs/guides/optional-resource-pack.md ]] || fail "missing optional resource pack guide"
 [[ -f docs/guides/structures.md ]] || fail "missing structures guide"
+[[ -f docs/guides/releasing.md ]] || fail "missing releasing guide"
 [[ -f docs/assets/diabolical-logo.png ]] || fail "missing README logo asset"
 [[ -f docs/assets/diabolical-items-preview.png ]] || fail "missing resource-pack preview asset"
 [[ -f resourcepacks/diabolical_optional_resources/pack.mcmeta ]] || fail "missing optional resource pack metadata"
+[[ -f .github/workflows/ci.yml ]] || fail "missing CI workflow"
+[[ -f .github/workflows/release.yml ]] || fail "missing release workflow"
+[[ -f .github/release.yml ]] || fail "missing GitHub release notes configuration"
+[[ -x scripts/release.sh ]] || fail "scripts/release.sh must be executable"
 
 note "checking public docs surface"
 for private_docs_dir in docs/content docs/design docs/ideas docs/implementation docs/reference docs/release docs/testing; do
@@ -98,6 +103,16 @@ jq -e '.pack.supported_formats.min_inclusive == 63' "${resource_pack_root}/pack.
 jq -e '.pack.supported_formats.max_inclusive == 64' "${resource_pack_root}/pack.mcmeta" >/dev/null || fail "optional resource pack maximum supported format must be 64"
 jq -e '.pack.min_format == [63, 0]' "${resource_pack_root}/pack.mcmeta" >/dev/null || fail "optional resource pack min_format must be [63, 0]"
 jq -e '.pack.max_format == [64, 0]' "${resource_pack_root}/pack.mcmeta" >/dev/null || fail "optional resource pack max_format must be [64, 0]"
+
+note "checking release automation"
+grep -Fq 'scripts/release.sh' .github/workflows/ci.yml || fail "CI workflow must use release preflight"
+grep -Fq 'actions/checkout@v6' .github/workflows/ci.yml || fail "CI workflow must use current checkout action"
+grep -Fq 'actions/upload-artifact@v7' .github/workflows/ci.yml || fail "CI workflow must upload package artifacts"
+grep -Fq 'tags:' .github/workflows/release.yml || fail "release workflow must run from tags"
+grep -Fq 'contents: write' .github/workflows/release.yml || fail "release workflow must have release publishing permission"
+grep -Fq 'gh release create' .github/workflows/release.yml || fail "release workflow must create GitHub releases"
+grep -Fq -- '--generate-notes' .github/workflows/release.yml || fail "release workflow must use generated release notes"
+grep -Fq 'changelog:' .github/release.yml || fail "release note configuration must define changelog categories"
 
 note "checking JSON"
 while IFS= read -r -d '' file; do

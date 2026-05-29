@@ -9,6 +9,8 @@
   textures and new court item textures.
 - Added optional visual model data for Black Writ, Court Candle, Bailiff Bell,
   Sinners Effigy, Ashen Brief, and Accusers Seal.
+- Added GitHub Actions CI, tag-driven release publishing, release-note
+  configuration, and a reusable local release preflight script.
 - Expanded validation and resource-pack packaging checks for the new visual
   item coverage.
 - Bumped versioned runtime storage to phase 23.
