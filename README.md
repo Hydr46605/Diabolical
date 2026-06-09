@@ -2,6 +2,13 @@
   <img src="docs/assets/diabolical-logo.png" alt="Diabolical" width="680">
 </p>
 
+<p align="center">
+  <a href="https://github.com/Hydr46605/Diabolical">
+    <img alt="Available on GitHub" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/github_vector.svg">
+  </a>
+  <img alt="Supported on PC" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/pc_vector.svg">
+</p>
+
 # Diabolical
 
 Minecraft Java data pack for infernal contracts, debt pressure, relics, events,
