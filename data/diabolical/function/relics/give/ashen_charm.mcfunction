@@ -1,0 +1,2 @@
+# Grants an Ashen Charm custom-data relic.
+give @s minecraft:fire_charge[minecraft:custom_data={diabolical:{relic:"ashen_charm",version:1}},minecraft:custom_model_data={strings:["diabolical:ashen_charm"]},minecraft:item_name='{"text":"Ashen Charm","color":"gold","italic":false}',minecraft:lore=['{"text":"One promise against flame.","color":"gray","italic":false}','{"text":"Use: /trigger diab.relic set 1","color":"dark_gray","italic":false}']] 1

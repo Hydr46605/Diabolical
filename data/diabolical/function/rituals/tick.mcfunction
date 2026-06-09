@@ -1,0 +1,5 @@
+# Watches only deliberate First Signature trigger candidates.
+execute as @e[type=item,tag=!diab.ritual_trigger,nbt={Item:{id:"minecraft:paper",count:1}}] at @s if block ~ ~-1 ~ minecraft:crying_obsidian if entity @a[distance=..8,limit=1,sort=nearest] run function diabolical:rituals/check/altar
+execute as @e[type=item,tag=!diab.ritual_trigger,nbt={Item:{id:"minecraft:bone_meal",count:1}}] at @s if block ~ ~-1 ~ minecraft:crying_obsidian if entity @a[distance=..8,limit=1,sort=nearest] run function diabolical:rituals/check/altar
+execute as @e[type=item,tag=!diab.ritual_trigger,nbt={Item:{id:"minecraft:bell",count:1}}] at @s if block ~ ~-1 ~ minecraft:crying_obsidian if entity @a[distance=..8,limit=1,sort=nearest] run function diabolical:rituals/check/altar
+execute as @e[type=item,tag=!diab.ritual_trigger,nbt={Item:{id:"minecraft:wither_rose",count:1}}] at @s if block ~ ~-1 ~ minecraft:crying_obsidian if entity @a[distance=..8,limit=1,sort=nearest] run function diabolical:rituals/check/altar

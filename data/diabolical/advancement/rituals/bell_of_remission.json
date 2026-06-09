@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:rituals/ashes_paid",
+  "display": {
+    "icon": {
+      "id": "minecraft:bell"
+    },
+    "title": {
+      "text": "Bell of Remission",
+      "color": "aqua"
+    },
+    "description": {
+      "text": "Cleanse sin and debt at an Infernal Altar with a bell, amethyst shard, and emerald."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

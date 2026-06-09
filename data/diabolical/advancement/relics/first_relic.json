@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:acts/relics",
+  "display": {
+    "icon": {
+      "id": "minecraft:recovery_compass"
+    },
+    "title": {
+      "text": "Cursed Tool",
+      "color": "dark_purple"
+    },
+    "description": {
+      "text": "Use a Diabolical relic. Relics give useful power but add sin, debt, or both."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

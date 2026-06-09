@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:contracts/unlocked",
+  "display": {
+    "icon": {
+      "id": "minecraft:cooked_beef"
+    },
+    "title": {
+      "text": "Pact of Hunger",
+      "color": "yellow"
+    },
+    "description": {
+      "text": "Sign the hunger pact: strength now, appetite and debt beside it."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

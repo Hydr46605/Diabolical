@@ -1,0 +1,2 @@
+# Grants the item-driven contract interface.
+give @s minecraft:carrot_on_a_stick[minecraft:custom_data={diabolical:{tool:"infernal_ledger",version:2}},minecraft:custom_model_data={strings:["diabolical:infernal_ledger"]},minecraft:item_name='{"text":"Infernal Ledger","color":"dark_red","italic":false}',minecraft:lore=['{"text":"Right-click for status, contracts, payments, relics, and court trials.","color":"gray","italic":false}','{"text":"Pay debt early; this server profile controls when pressure escalates.","color":"dark_gray","italic":false}']] 1

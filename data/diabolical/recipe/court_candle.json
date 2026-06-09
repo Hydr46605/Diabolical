@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:red_candle",
+    "minecraft:soul_sand",
+    "minecraft:fire_charge"
+  ],
+  "result": {
+    "id": "minecraft:red_candle",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "diabolical": {
+          "court_item": "court_candle",
+          "version": 1
+        }
+      },
+      "minecraft:custom_model_data": {
+        "strings": [
+          "diabolical:court_candle"
+        ]
+      },
+      "minecraft:item_name": {
+        "text": "Court Candle",
+        "color": "dark_red",
+        "italic": false
+      },
+      "minecraft:lore": [
+        {
+          "text": "Burns with court ash.",
+          "color": "gray",
+          "italic": false
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:contracts/unlocked",
+  "display": {
+    "icon": {
+      "id": "minecraft:netherite_scrap"
+    },
+    "title": {
+      "text": "Act V: Major Clauses",
+      "color": "dark_red"
+    },
+    "description": {
+      "text": "Sign every minor contract to reveal major clauses with harsher consequences."
+    },
+    "frame": "goal",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

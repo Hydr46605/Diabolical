@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:mobs/sin_wraith",
+  "display": {
+    "icon": {
+      "id": "minecraft:glow_ink_sac"
+    },
+    "title": {
+      "text": "Ashen Advocate",
+      "color": "gray"
+    },
+    "description": {
+      "text": "Beat the court's argument against remission."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

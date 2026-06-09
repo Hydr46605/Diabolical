@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:acts/mastery",
+  "display": {
+    "icon": {
+      "id": "minecraft:netherite_scrap"
+    },
+    "title": {
+      "text": "Case Dismissed",
+      "color": "dark_red"
+    },
+    "description": {
+      "text": "Defeat The Accuser and leave with the court's seal."
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

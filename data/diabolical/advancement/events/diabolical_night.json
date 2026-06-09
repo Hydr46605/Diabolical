@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:acts/nights",
+  "display": {
+    "icon": {
+      "id": "minecraft:clock"
+    },
+    "title": {
+      "text": "Diabolical Night",
+      "color": "dark_red"
+    },
+    "description": {
+      "text": "Enter a Diabolical Night as a debtor or stained soul. Hostiles nearby will answer the ledger."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,0 +1,2 @@
+# Grants a Hellbound Compass custom-data relic.
+give @s minecraft:recovery_compass[minecraft:custom_data={diabolical:{relic:"hellbound_compass",version:1}},minecraft:custom_model_data={strings:["diabolical:hellbound_compass"]},minecraft:item_name='{"text":"Hellbound Compass","color":"dark_red","italic":false}',minecraft:lore=['{"text":"It points first at what you owe.","color":"gray","italic":false}','{"text":"Use: /trigger diab.relic set 3","color":"dark_gray","italic":false}']] 1

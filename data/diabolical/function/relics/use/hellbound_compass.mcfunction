@@ -1,0 +1,5 @@
+# Uses Hellbound Compass if selected and debt exists.
+execute unless entity @s[nbt={SelectedItem:{id:"minecraft:recovery_compass",components:{"minecraft:custom_data":{diabolical:{relic:"hellbound_compass"}}}}}] run function diabolical:relics/use/fail_missing
+execute if entity @s[nbt={SelectedItem:{id:"minecraft:recovery_compass",components:{"minecraft:custom_data":{diabolical:{relic:"hellbound_compass"}}}}}] if score @s diab.cooldown matches 1.. run function diabolical:relics/use/fail_cooldown
+execute if entity @s[nbt={SelectedItem:{id:"minecraft:recovery_compass",components:{"minecraft:custom_data":{diabolical:{relic:"hellbound_compass"}}}}}] if score @s diab.cooldown matches 0 if score @s diab.debt matches 0 run function diabolical:relics/use/fail_no_debt
+execute if entity @s[nbt={SelectedItem:{id:"minecraft:recovery_compass",components:{"minecraft:custom_data":{diabolical:{relic:"hellbound_compass"}}}}}] if score @s diab.cooldown matches 0 if score @s diab.debt matches 1.. run function diabolical:relics/use/apply/hellbound_compass

@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:mobs/contract_imp",
+  "display": {
+    "icon": {
+      "id": "minecraft:phantom_membrane"
+    },
+    "title": {
+      "text": "Sin Wraith",
+      "color": "dark_purple"
+    },
+    "description": {
+      "text": "Defeat a wraith drawn by a stained account."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:mastery/starter_contracts",
+  "display": {
+    "icon": {
+      "id": "minecraft:gold_ingot"
+    },
+    "title": {
+      "text": "Every Minor Clause",
+      "color": "dark_red"
+    },
+    "description": {
+      "text": "Sign every minor contract at least once."
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,0 +1,2 @@
+# Grants a Midas Coin custom-data relic.
+give @s minecraft:gold_nugget[minecraft:custom_data={diabolical:{relic:"midas_coin",version:1}},minecraft:custom_model_data={strings:["diabolical:midas_coin"]},minecraft:item_name='{"text":"Midas Coin","color":"yellow","italic":false}',minecraft:lore=['{"text":"Greed made small enough to hold.","color":"gray","italic":false}','{"text":"Use: /trigger diab.relic set 2","color":"dark_gray","italic":false}']] 1

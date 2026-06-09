@@ -1,0 +1,3 @@
+# Shows controls for active Greed Clause.
+tellraw @s [{"text":"Active: Greed Clause","color":"gold","bold":true},{"text":"  Contract debt: ","color":"gray","bold":false},{"score":{"name":"@s","objective":"diab.cdebt"},"color":"white"}]
+tellraw @s [{"text":"  "},{"text":"[Pay 7]","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/trigger diab.pay set 5"},"hoverEvent":{"action":"show_text","contents":{"text":"Pay Greed Clause debt"}}},{"text":"  "},{"text":"[Revoke]","color":"red","bold":true,"clickEvent":{"action":"run_command","value":"/trigger diab.revoke set 5"},"hoverEvent":{"action":"show_text","contents":{"text":"Close Greed Clause without paying total debt"}}}]

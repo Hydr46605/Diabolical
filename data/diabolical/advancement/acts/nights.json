@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:contracts/unlocked",
+  "display": {
+    "icon": {
+      "id": "minecraft:soul_lantern"
+    },
+    "title": {
+      "text": "Act IV: Night Pressure",
+      "color": "dark_red"
+    },
+    "description": {
+      "text": "High debt and stained souls can draw audits, collectors, and Diabolical Nights."
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

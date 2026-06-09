@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:root",
+  "display": {
+    "icon": {
+      "id": "minecraft:crying_obsidian"
+    },
+    "title": {
+      "text": "Act I: First Deal",
+      "color": "dark_red"
+    },
+    "description": {
+      "text": "Read the Infernal Primer, build the altar, and perform First Signature."
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "loaded": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

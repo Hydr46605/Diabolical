@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:acts/debt_pressure",
+  "display": {
+    "icon": {
+      "id": "minecraft:bone_meal"
+    },
+    "title": {
+      "text": "Ashes Paid",
+      "color": "gray"
+    },
+    "description": {
+      "text": "Pay debt at an Infernal Altar with bone meal, lapis lazuli, and a water bucket."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
