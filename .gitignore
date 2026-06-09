@@ -1,0 +1,25 @@
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Local agent/operator workspace
+.agents/
+.codex/
+.worktrees/
+worktrees/
+
+# Pack/build outputs
+dist/
+build/
+*.zip
+tmp/
+
+# Minecraft runtime/test-world noise
+world/
+logs/
+crash-reports/
+*.log
