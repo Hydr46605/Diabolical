@@ -1,0 +1,39 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "cases": [
+      {
+        "when": "diabolical:infernal_primer",
+        "model": {
+          "type": "minecraft:model",
+          "model": "diabolical:item/infernal_primer"
+        }
+      },
+      {
+        "when": "diabolical:ashen_brief",
+        "model": {
+          "type": "minecraft:model",
+          "model": "diabolical:item/ashen_brief"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/book"
+    }
+  },
+  "__smithed__": {
+    "rules": [
+      {
+        "type": "smithed:replace",
+        "target": "model",
+        "source": {
+          "type": "smithed:reference",
+          "path": "model"
+        }
+      }
+    ]
+  }
+}

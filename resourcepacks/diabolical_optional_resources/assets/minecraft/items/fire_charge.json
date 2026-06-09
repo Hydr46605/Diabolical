@@ -1,0 +1,32 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "cases": [
+      {
+        "when": "diabolical:ashen_charm",
+        "model": {
+          "type": "minecraft:model",
+          "model": "diabolical:item/ashen_charm"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/fire_charge"
+    }
+  },
+  "__smithed__": {
+    "rules": [
+      {
+        "type": "smithed:replace",
+        "target": "model",
+        "source": {
+          "type": "smithed:reference",
+          "path": "model"
+        }
+      }
+    ]
+  }
+}
