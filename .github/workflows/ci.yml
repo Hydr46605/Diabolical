@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-build:
+    name: Validate and package
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Install packaging tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq zip unzip
+
+      - name: Determine release version
+        id: version
+        run: |
+          version="$(sed -n 's/.*version:"\([^"]*\)".*/\1/p' data/diabolical/function/config/defaults.mcfunction | head -n 1)"
+          test -n "$version"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Build release packages
+        run: scripts/release.sh "${{ steps.version.outputs.version }}"
+
+      - name: Upload built packages
+        uses: actions/upload-artifact@v7
+        with:
+          name: diabolical-packages-${{ steps.version.outputs.version }}
+          path: |
+            dist/Diabolical-${{ steps.version.outputs.version }}.zip
+            dist/Diabolical-optional-resources-${{ steps.version.outputs.version }}.zip
+          if-no-files-found: error
+          retention-days: 14

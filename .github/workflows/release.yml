@@ -1,0 +1,82 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing tag to release, such as v0.4.1-dev
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    name: Build and publish release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Install packaging tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq zip unzip
+
+      - name: Resolve tag and version
+        id: release
+        run: |
+          if [[ "$GITHUB_EVENT_NAME" == "workflow_dispatch" ]]; then
+            tag="${{ inputs.tag }}"
+            git fetch --tags origin
+            git checkout "$tag"
+          else
+            tag="$GITHUB_REF_NAME"
+          fi
+
+          [[ "$tag" == v* ]] || {
+            echo "Release tags must start with v: $tag" >&2
+            exit 1
+          }
+
+          version="${tag#v}"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Build release packages
+        run: scripts/release.sh "${{ steps.release.outputs.version }}"
+
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG_NAME: ${{ steps.release.outputs.tag }}
+          VERSION: ${{ steps.release.outputs.version }}
+        run: |
+          release_flags=(
+            --verify-tag
+            --title "Diabolical ${VERSION}"
+            --generate-notes
+          )
+
+          if [[ "$VERSION" == *-* ]]; then
+            release_flags+=(--prerelease --latest=false)
+          fi
+
+          if gh release view "$TAG_NAME" >/dev/null 2>&1; then
+            gh release upload "$TAG_NAME" \
+              "dist/Diabolical-${VERSION}.zip#Diabolical data pack ${VERSION}" \
+              "dist/Diabolical-optional-resources-${VERSION}.zip#Optional resource pack ${VERSION}" \
+              --clobber
+          else
+            gh release create "$TAG_NAME" \
+              "dist/Diabolical-${VERSION}.zip#Diabolical data pack ${VERSION}" \
+              "dist/Diabolical-optional-resources-${VERSION}.zip#Optional resource pack ${VERSION}" \
+              "${release_flags[@]}"
+          fi
