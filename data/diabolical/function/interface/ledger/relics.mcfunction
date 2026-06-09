@@ -1,5 +1,5 @@
 # Shows the Infernal Ledger relic controls page.
-tellraw @s [{"text":"Infernal Ledger","color":"dark_red","bold":true},{"text":" - Relics","color":"gray","bold":false}]
+tellraw @s [{"text":"\ue120\ue130","font":"diabolical:ledger","color":"white"},{"text":" Infernal Ledger","color":"dark_red","bold":true},{"text":" - Relics","color":"gray","bold":false}]
 function diabolical:interface/ledger/nav
 execute if score #relics diab.config matches 0 run function diabolical:interface/ledger/disabled/relics
 execute if score #relics diab.config matches 1 run tellraw @s [{"text":"Hold the matching relic, then choose a use action.","color":"gray"}]

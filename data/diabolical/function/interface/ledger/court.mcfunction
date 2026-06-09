@@ -1,5 +1,5 @@
 # Shows the Infernal Ledger Sinbound Court page.
-tellraw @s [{"text":"Infernal Ledger","color":"dark_red","bold":true},{"text":" - Sinbound Court","color":"gray","bold":false}]
+tellraw @s [{"text":"\ue120\ue130","font":"diabolical:ledger","color":"white"},{"text":" Infernal Ledger","color":"dark_red","bold":true},{"text":" - Sinbound Court","color":"gray","bold":false}]
 function diabolical:interface/ledger/nav
 execute if score #mobs diab.config matches 0 run function diabolical:interface/ledger/disabled/mobs
 execute if score #mobs diab.config matches 1 run tellraw @s [{"text":"The court reacts to high sin. Crafted court items let you call controlled trials.","color":"gray"}]

@@ -86,6 +86,7 @@ Also test two players near the same altar.
 1. Install `dist/Diabolical-optional-resources-0.5.0-dev.zip` as a resource pack.
 2. Confirm the Primer, Ledger, relics, compass items, and court items render with
    custom 16x16 textures.
-3. Confirm contract rows show Ledger glyph markers beside plain contract names.
+3. Confirm the Ledger title uses the custom overlay and contract rows show
+   glyph markers beside plain contract names.
 4. Remove the resource pack and confirm the datapack still plays normally with
    vanilla item visuals and readable contract text.

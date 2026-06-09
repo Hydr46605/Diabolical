@@ -2,11 +2,98 @@
   "providers": [
     {
       "type": "bitmap",
-      "file": "diabolical:font/ledger_contracts.png",
+      "file": "diabolical:gui/ledger_title.png",
+      "ascent": 24,
+      "height": 32,
+      "chars": [
+        "\ue120"
+      ]
+    },
+    {
+      "type": "space",
+      "advances": {
+        "\ue130": -248
+      }
+    },
+    {
+      "type": "bitmap",
+      "file": "diabolical:item/contracts/pact_of_embers.png",
       "ascent": 13,
       "height": 16,
       "chars": [
-        "\ue101\ue102\ue103\ue104\ue105\ue106\ue107\ue108\ue109"
+        "\ue101"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "diabolical:item/contracts/pact_of_hunger.png",
+      "ascent": 13,
+      "height": 16,
+      "chars": [
+        "\ue102"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "diabolical:item/contracts/red_ledger_minor.png",
+      "ascent": 13,
+      "height": 16,
+      "chars": [
+        "\ue103"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "diabolical:item/contracts/pact_of_copper.png",
+      "ascent": 13,
+      "height": 16,
+      "chars": [
+        "\ue104"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "diabolical:item/contracts/greed_clause.png",
+      "ascent": 13,
+      "height": 16,
+      "chars": [
+        "\ue105"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "diabolical:item/contracts/the_red_ledger.png",
+      "ascent": 13,
+      "height": 16,
+      "chars": [
+        "\ue106"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "diabolical:item/contracts/blood_tithe.png",
+      "ascent": 13,
+      "height": 16,
+      "chars": [
+        "\ue107"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "diabolical:item/contracts/ashen_credit.png",
+      "ascent": 13,
+      "height": 16,
+      "chars": [
+        "\ue108"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "diabolical:item/contracts/grave_collateral.png",
+      "ascent": 13,
+      "height": 16,
+      "chars": [
+        "\ue109"
       ]
     }
   ]

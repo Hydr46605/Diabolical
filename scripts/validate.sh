@@ -115,11 +115,13 @@ jq -e '.pack.min_format == [63, 0]' "${resource_pack_root}/pack.mcmeta" >/dev/nu
 jq -e '.pack.max_format == [64, 0]' "${resource_pack_root}/pack.mcmeta" >/dev/null || fail "optional resource pack max_format must be [64, 0]"
 
 ledger_font="${resource_pack_root}/assets/diabolical/font/ledger.json"
-ledger_font_texture="${resource_pack_root}/assets/diabolical/textures/font/ledger_contracts.png"
+ledger_title_texture="${resource_pack_root}/assets/diabolical/textures/gui/ledger_title.png"
 [[ -f "$ledger_font" ]] || fail "missing Ledger font definition: $ledger_font"
-check_png_size "$ledger_font_texture" 144 16
-jq -e '.providers[0].type == "bitmap" and .providers[0].file == "diabolical:font/ledger_contracts.png" and .providers[0].height == 16' "$ledger_font" >/dev/null || fail "bad Ledger font provider: $ledger_font"
-jq -e '.providers[0].chars == ["\ue101\ue102\ue103\ue104\ue105\ue106\ue107\ue108\ue109"]' "$ledger_font" >/dev/null || fail "Ledger font must map nine contract glyphs: $ledger_font"
+check_png_size "$ledger_title_texture" 256 32
+jq -e 'any(.providers[]; .type == "bitmap" and .file == "diabolical:gui/ledger_title.png" and .height == 32 and .chars == ["\ue120"])' "$ledger_font" >/dev/null || fail "bad Ledger title overlay provider: $ledger_font"
+jq -e 'any(.providers[]; .type == "space" and .advances["\ue130"] == -248)' "$ledger_font" >/dev/null || fail "Ledger font must include negative title spacing: $ledger_font"
+jq -e '[.providers[] | select((.file? // "") | startswith("diabolical:item/contracts/"))] | length == 9' "$ledger_font" >/dev/null || fail "Ledger font must map nine contract item textures: $ledger_font"
+jq -e '[.providers[] | select((.file? // "") | startswith("diabolical:item/contracts/")) | .chars[0]] | sort == ["\ue101","\ue102","\ue103","\ue104","\ue105","\ue106","\ue107","\ue108","\ue109"]' "$ledger_font" >/dev/null || fail "Ledger font must map contract glyph range: $ledger_font"
 
 note "checking release automation"
 grep -Fq 'scripts/release.sh' .github/workflows/ci.yml || fail "CI workflow must use release preflight"
@@ -505,6 +507,8 @@ done
 
 glyph_count="$(grep -R '"font":"diabolical:ledger"' data/diabolical/function/contracts/offer/*.mcfunction data/diabolical/function/contracts/offer/active/*.mcfunction | wc -l || true)"
 ((glyph_count >= 18)) || fail "every contract offer and active row must include a Ledger glyph"
+title_overlay_count="$(grep -R '"\\ue120\\ue130","font":"diabolical:ledger"' data/diabolical/function/interface/ledger/*.mcfunction | wc -l || true)"
+((title_overlay_count >= 6)) || fail "every Ledger page title must include the custom title overlay glyph"
 
 note "checking data-pack path casing"
 while IFS= read -r -d '' path; do
@@ -521,6 +525,31 @@ while IFS= read -r -d '' path; do
 done < <(find "$resource_pack_root" -type f -print0)
 
 note "checking optional resource-pack item models"
+contract_visuals=(
+  pact_of_embers
+  pact_of_hunger
+  red_ledger_minor
+  pact_of_copper
+  greed_clause
+  the_red_ledger
+  blood_tithe
+  ashen_credit
+  grave_collateral
+)
+
+for contract in "${contract_visuals[@]}"; do
+  item_file="${resource_pack_root}/assets/diabolical/items/contracts/${contract}.json"
+  model_file="${resource_pack_root}/assets/diabolical/models/item/contracts/${contract}.json"
+  texture_file="${resource_pack_root}/assets/diabolical/textures/item/contracts/${contract}.png"
+
+  [[ -f "$item_file" ]] || fail "missing contract item model definition: $item_file"
+  [[ -f "$model_file" ]] || fail "missing contract raw item model: $model_file"
+  check_png_size "$texture_file" 16 16
+  jq -e --arg model "diabolical:item/contracts/${contract}" '.model.type == "minecraft:model" and .model.model == $model' "$item_file" >/dev/null || fail "bad contract item model definition: $item_file"
+  jq -e --arg texture "diabolical:item/contracts/${contract}" '.parent == "minecraft:item/generated" and .textures.layer0 == $texture' "$model_file" >/dev/null || fail "bad contract raw item model texture: $model_file"
+  jq -e --arg file "diabolical:item/contracts/${contract}.png" 'any(.providers[]; .type == "bitmap" and .file == $file)' "$ledger_font" >/dev/null || fail "Ledger font missing provider for contract texture: $contract"
+done
+
 for item in infernal_ledger infernal_primer ashen_charm midas_coin hellbound_compass awakened_hellbound_compass black_writ court_candle bailiff_bell sinners_effigy ashen_brief accusers_seal; do
   item_file="${resource_pack_root}/assets/diabolical/items/${item}.json"
   model_file="${resource_pack_root}/assets/diabolical/models/item/${item}.json"

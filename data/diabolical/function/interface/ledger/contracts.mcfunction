@@ -1,5 +1,5 @@
 # Shows the Infernal Ledger contracts page.
-tellraw @s [{"text":"Infernal Ledger","color":"dark_red","bold":true},{"text":" - Contracts","color":"gray","bold":false}]
+tellraw @s [{"text":"\ue120\ue130","font":"diabolical:ledger","color":"white"},{"text":" Infernal Ledger","color":"dark_red","bold":true},{"text":" - Contracts","color":"gray","bold":false}]
 function diabolical:interface/ledger/nav
 function diabolical:interface/ledger/summary
 execute if entity @s[advancements={diabolical:contracts/major_unlocked=true}] run tag @s add diab.contracts_major_unlocked

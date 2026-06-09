@@ -1,5 +1,5 @@
 # Shows the Infernal Ledger payments page.
-tellraw @s [{"text":"Infernal Ledger","color":"dark_red","bold":true},{"text":" - Payments","color":"gray","bold":false}]
+tellraw @s [{"text":"\ue120\ue130","font":"diabolical:ledger","color":"white"},{"text":" Infernal Ledger","color":"dark_red","bold":true},{"text":" - Payments","color":"gray","bold":false}]
 function diabolical:interface/ledger/nav
 function diabolical:interface/ledger/summary
 execute if score #contracts diab.config matches 0 run function diabolical:interface/ledger/disabled/contracts

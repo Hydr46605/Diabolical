@@ -4,9 +4,9 @@
 scripts/validate.sh
 ```
 
-Checks metadata, JSON, references, contract routes, recipes, models, Ledger font
-assets, PNG size, structure NBT, selector guardrails, path casing, and line
-endings.
+Checks metadata, JSON, references, contract routes, recipes, models, Ledger
+title overlay, contract textures, PNG size, structure NBT, selector guardrails,
+path casing, and line endings.
 
 ```sh
 scripts/release.sh 0.5.0-dev

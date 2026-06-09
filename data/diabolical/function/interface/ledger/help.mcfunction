@@ -1,5 +1,5 @@
 # Shows the Infernal Ledger help page.
-tellraw @s [{"text":"Infernal Ledger","color":"dark_red","bold":true},{"text":" - Help","color":"gray","bold":false}]
+tellraw @s [{"text":"\ue120\ue130","font":"diabolical:ledger","color":"white"},{"text":" Infernal Ledger","color":"dark_red","bold":true},{"text":" - Help","color":"gray","bold":false}]
 function diabolical:interface/ledger/nav
 tellraw @s [{"text":"Infernal Altar: crying obsidian center with soul sand or soul soil on all four cardinal sides.","color":"gray"}]
 tellraw @s [{"text":"First Signature: paper, ink sac, and gold nugget.","color":"gray"}]

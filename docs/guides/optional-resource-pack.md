@@ -1,7 +1,7 @@
 # Optional Resource Pack
 
-Optional item visuals and Ledger glyph markers. Gameplay works without it, and
-contract names/actions remain plain text.
+Optional item visuals, contract textures, and Ledger title overlay. Gameplay
+works without it, and contract names/actions remain plain text.
 
 Build:
 
@@ -28,7 +28,8 @@ Install the zip as a resource pack, not a data pack.
 
 ## Ledger Glyphs
 
-The pack includes a small bitmap font for contract markers:
+The pack includes a bitmap font for the Ledger title overlay and contract
+markers. Each contract marker is backed by its own 16x16 item texture:
 
 - Pact of Embers
 - Pact of Hunger

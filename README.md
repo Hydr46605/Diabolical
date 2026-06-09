@@ -14,8 +14,8 @@
 Minecraft Java data pack for infernal contracts, debt pressure, relics, events,
 and vanilla-mob trials.
 
-The resource pack is optional and adds item visuals plus Ledger glyph markers.
-Gameplay and text remain readable without it.
+The resource pack is optional and adds item visuals, contract textures, and a
+Ledger title overlay. Gameplay and text remain readable without it.
 
 ## Status
 

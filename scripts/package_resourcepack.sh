@@ -73,10 +73,30 @@ has_entry "assets/diabolical/font/ledger.json" || {
   exit 1
 }
 
-has_entry "assets/diabolical/textures/font/ledger_contracts.png" || {
-  printf 'package-resourcepack: error: Ledger font texture is missing from zip root\n' >&2
+has_entry "assets/diabolical/textures/gui/ledger_title.png" || {
+  printf 'package-resourcepack: error: Ledger title overlay texture is missing from zip root\n' >&2
   exit 1
 }
+
+for contract in \
+  pact_of_embers \
+  pact_of_hunger \
+  red_ledger_minor \
+  pact_of_copper \
+  greed_clause \
+  the_red_ledger \
+  blood_tithe \
+  ashen_credit \
+  grave_collateral; do
+  has_entry "assets/diabolical/textures/item/contracts/${contract}.png" || {
+    printf 'package-resourcepack: error: contract texture is missing from zip root: %s\n' "$contract" >&2
+    exit 1
+  }
+  has_entry "assets/diabolical/models/item/contracts/${contract}.json" || {
+    printf 'package-resourcepack: error: contract item model is missing from zip root: %s\n' "$contract" >&2
+    exit 1
+  }
+done
 
 if printf '%s\n' "${zip_entries[@]}" | grep -Eq '^[^/]+/pack\.mcmeta$'; then
   printf 'package-resourcepack: error: zip contains a nested pack.mcmeta; package the resource pack root directly\n' >&2

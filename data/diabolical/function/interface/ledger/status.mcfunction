@@ -1,5 +1,5 @@
 # Shows the Infernal Ledger account status page.
-tellraw @s [{"text":"Infernal Ledger","color":"dark_red","bold":true},{"text":" - Account Status","color":"gray","bold":false}]
+tellraw @s [{"text":"\ue120\ue130","font":"diabolical:ledger","color":"white"},{"text":" Infernal Ledger","color":"dark_red","bold":true},{"text":" - Account Status","color":"gray","bold":false}]
 function diabolical:interface/ledger/nav
 function diabolical:interface/ledger/summary
 tellraw @s [{"text":"Sin: ","color":"gray"},{"score":{"name":"@s","objective":"diab.sin"},"color":"white"},{"text":"  Debt: ","color":"gray"},{"score":{"name":"@s","objective":"diab.debt"},"color":"white"},{"text":"  Cooldown: ","color":"gray"},{"score":{"name":"@s","objective":"diab.cooldown"},"color":"white"}]
