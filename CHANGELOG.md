@@ -2,6 +2,8 @@
 
 ## 0.5.0-dev
 
+Release notes: [docs/releases/0.5.0-dev.md](docs/releases/0.5.0-dev.md).
+
 - Added the Red Ledger Expansion with Blood Tithe, Ashen Credit, and Grave
   Collateral contracts.
 - Added distinct Ledger and advancement icon identity for every contract.

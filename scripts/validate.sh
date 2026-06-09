@@ -51,6 +51,7 @@ command -v python3 >/dev/null 2>&1 || fail "python3 is required"
 [[ -f data/minecraft/tags/function/tick.json ]] || fail "missing tick function tag"
 [[ -f README.md ]] || fail "missing README"
 [[ -f CHANGELOG.md ]] || fail "missing changelog"
+[[ -f CONTRIBUTING.md ]] || fail "missing contributing guide"
 [[ -f docs/README.md ]] || fail "missing public docs index"
 [[ -f docs/getting-started.md ]] || fail "missing getting started guide"
 [[ -f docs/guides/server-admin.md ]] || fail "missing server guide"
@@ -60,24 +61,24 @@ command -v python3 >/dev/null 2>&1 || fail "python3 is required"
 [[ -f docs/guides/optional-resource-pack.md ]] || fail "missing optional resource pack guide"
 [[ -f docs/guides/structures.md ]] || fail "missing structures guide"
 [[ -f docs/guides/releasing.md ]] || fail "missing releasing guide"
+[[ -f docs/releases/0.5.0-dev.md ]] || fail "missing 0.5.0-dev release notes"
 [[ -f docs/assets/diabolical-logo.png ]] || fail "missing README logo asset"
 [[ -f docs/assets/diabolical-items-preview.png ]] || fail "missing resource-pack preview asset"
 [[ -f resourcepacks/diabolical_optional_resources/pack.mcmeta ]] || fail "missing optional resource pack metadata"
 [[ -f .github/workflows/ci.yml ]] || fail "missing CI workflow"
 [[ -f .github/workflows/release.yml ]] || fail "missing release workflow"
-[[ -f .github/release.yml ]] || fail "missing GitHub release notes configuration"
 [[ -x scripts/release.sh ]] || fail "scripts/release.sh must be executable"
 [[ -x scripts/paper_smoke.sh ]] || fail "scripts/paper_smoke.sh must be executable"
 
 note "checking public docs surface"
-for private_docs_dir in docs/content docs/design docs/ideas docs/implementation docs/reference docs/release docs/testing; do
-  [[ ! -e "$private_docs_dir" ]] || fail "internal docs must not be tracked publicly: $private_docs_dir"
+for reserved_docs_dir in docs/content docs/design docs/ideas docs/implementation docs/reference docs/release docs/testing; do
+  [[ ! -e "$reserved_docs_dir" ]] || fail "reserved docs path must not be tracked: $reserved_docs_dir"
 done
 
 while IFS= read -r -d '' file; do
   case "$file" in
-    docs/README.md|docs/getting-started.md|docs/guides/*.md) ;;
-    *) fail "public docs markdown must stay in docs root or docs/guides: $file" ;;
+    docs/README.md|docs/getting-started.md|docs/guides/*.md|docs/releases/*.md) ;;
+    *) fail "public docs markdown must stay in docs root, docs/guides, or docs/releases: $file" ;;
   esac
 done < <(find docs -type f -name '*.md' -print0)
 
@@ -130,8 +131,14 @@ grep -Fq 'actions/upload-artifact@v7' .github/workflows/ci.yml || fail "CI workf
 grep -Fq 'tags:' .github/workflows/release.yml || fail "release workflow must run from tags"
 grep -Fq 'contents: write' .github/workflows/release.yml || fail "release workflow must have release publishing permission"
 grep -Fq 'gh release create' .github/workflows/release.yml || fail "release workflow must create GitHub releases"
-grep -Fq -- '--generate-notes' .github/workflows/release.yml || fail "release workflow must use generated release notes"
-grep -Fq 'changelog:' .github/release.yml || fail "release note configuration must define changelog categories"
+grep -Fq 'docs/releases/${VERSION}.md' .github/workflows/release.yml || fail "release workflow must use versioned release notes"
+grep -Fq -- '--notes-file' .github/workflows/release.yml || fail "release workflow must pass release notes file to GitHub"
+generated_notes_flag="--generate""-notes"
+! grep -Fq -- "$generated_notes_flag" .github/workflows/release.yml || fail "release workflow must not use generated release notes"
+generated_release_config=".github/release"".yml"
+[[ ! -e "$generated_release_config" ]] || fail "generated release-note configuration must be removed"
+grep -Fq 'Diabolical-0.5.0-dev.zip' docs/releases/0.5.0-dev.md || fail "release notes must mention data pack asset"
+grep -Fq 'Diabolical-optional-resources-0.5.0-dev.zip' docs/releases/0.5.0-dev.md || fail "release notes must mention resource pack asset"
 
 note "checking JSON"
 while IFS= read -r -d '' file; do
@@ -471,7 +478,7 @@ while IFS= read -r objective; do
 done < <(grep -RhoE '/?trigger[[:space:]]+diab\.[a-z0-9_.-]+' data/diabolical/function | awk '{print $2}' | sort -u)
 
 note "checking contract routes"
-contract_specs=(
+contract_routes=(
   pact_of_embers:1
   pact_of_hunger:2
   red_ledger_minor:3
@@ -483,9 +490,9 @@ contract_specs=(
   grave_collateral:9
 )
 
-for spec in "${contract_specs[@]}"; do
-  contract="${spec%%:*}"
-  id="${spec#*:}"
+for route in "${contract_routes[@]}"; do
+  contract="${route%%:*}"
+  id="${route#*:}"
 
   [[ -f "data/diabolical/function/contracts/offer/${contract}.mcfunction" ]] || fail "missing contract offer: $contract"
   [[ -f "data/diabolical/function/contracts/offer/active/${contract}.mcfunction" ]] || fail "missing active contract offer: $contract"

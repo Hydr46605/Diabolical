@@ -36,6 +36,8 @@ tag="v${version}"
 
 [[ -f CHANGELOG.md ]] || fail "missing CHANGELOG.md"
 grep -Fq "## ${version}" CHANGELOG.md || fail "CHANGELOG.md is missing section: ## ${version}"
+release_notes="docs/releases/${version}.md"
+[[ -s "$release_notes" ]] || fail "missing release notes: $release_notes"
 grep -Fq "version:\"${version}\"" data/diabolical/function/config/defaults.mcfunction || fail "runtime config version does not match ${version}"
 
 scripts/validate.sh

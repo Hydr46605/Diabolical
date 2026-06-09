@@ -59,17 +59,33 @@ jobs:
           TAG_NAME: ${{ steps.release.outputs.tag }}
           VERSION: ${{ steps.release.outputs.version }}
         run: |
+          notes_file="docs/releases/${VERSION}.md"
+          if [[ ! -s "$notes_file" ]]; then
+            echo "Missing release notes: $notes_file" >&2
+            exit 1
+          fi
+
           release_flags=(
             --verify-tag
             --title "Diabolical ${VERSION}"
-            --generate-notes
+            --notes-file "$notes_file"
+          )
+
+          edit_flags=(
+            --title "Diabolical ${VERSION}"
+            --notes-file "$notes_file"
           )
 
           if [[ "$VERSION" == *-* ]]; then
             release_flags+=(--prerelease --latest=false)
+            edit_flags+=(--prerelease --latest=false)
+          else
+            release_flags+=(--latest)
+            edit_flags+=(--prerelease=false --latest)
           fi
 
           if gh release view "$TAG_NAME" >/dev/null 2>&1; then
+            gh release edit "$TAG_NAME" "${edit_flags[@]}"
             gh release upload "$TAG_NAME" \
               "dist/Diabolical-${VERSION}.zip#Diabolical data pack ${VERSION}" \
               "dist/Diabolical-optional-resources-${VERSION}.zip#Optional resource pack ${VERSION}" \

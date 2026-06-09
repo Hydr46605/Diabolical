@@ -76,6 +76,8 @@ scripts/paper_smoke.sh 0.5.0-dev
 - [Optional Resource Pack](docs/guides/optional-resource-pack.md)
 - [Infernal Ruins](docs/guides/structures.md)
 - [Releasing](docs/guides/releasing.md)
+- [Changelog](CHANGELOG.md)
+- [Contributing](CONTRIBUTING.md)
 
 ## License
 
