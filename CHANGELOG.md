@@ -4,6 +4,7 @@
 
 - Prepared the repository for public review with clearer README, verification,
   release, and server-operation documentation.
+- Switched the public license to MPL-2.0.
 - Added calm, default, and hard balance profiles for server operators.
 - Reworked natural event and Sinbound Court pressure to use profile-backed
   thresholds instead of fixed runtime cutoffs.
@@ -64,5 +65,5 @@
 
 ## 0.1.0-rc1
 
-- Packaged the first release candidate with validation, install notes, and MIT
-  licensing.
+- Packaged the first release candidate with validation, install notes, and
+  project licensing.

@@ -70,4 +70,4 @@ scripts/paper_smoke.sh 0.4.2-rc1
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MPL-2.0. See [LICENSE](LICENSE).
