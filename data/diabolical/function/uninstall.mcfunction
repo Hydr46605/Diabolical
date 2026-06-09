@@ -11,6 +11,9 @@ scoreboard objectives remove diab.cooldown
 scoreboard objectives remove diab.rcharge
 scoreboard objectives remove diab.contract
 scoreboard objectives remove diab.cdebt
+scoreboard objectives remove diab.btithe
+scoreboard objectives remove diab.hp
+scoreboard objectives remove diab.gravecd
 scoreboard objectives remove diab.event
 scoreboard objectives remove diab.mob
 scoreboard objectives remove diab.tmp
@@ -85,6 +88,9 @@ tag @a remove diab.contract.red_ledger_minor
 tag @a remove diab.contract.pact_of_copper
 tag @a remove diab.contract.greed_clause
 tag @a remove diab.contract.the_red_ledger
+tag @a remove diab.contract.blood_tithe
+tag @a remove diab.contract.ashen_credit
+tag @a remove diab.contract.grave_collateral
 tag @a remove diab.relic_holder
 tag @a remove diab.event_target
 tag @a remove diab.event_survivor

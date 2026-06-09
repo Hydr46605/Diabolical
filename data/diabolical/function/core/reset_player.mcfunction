@@ -10,6 +10,9 @@ tag @s remove diab.contract.red_ledger_minor
 tag @s remove diab.contract.pact_of_copper
 tag @s remove diab.contract.greed_clause
 tag @s remove diab.contract.the_red_ledger
+tag @s remove diab.contract.blood_tithe
+tag @s remove diab.contract.ashen_credit
+tag @s remove diab.contract.grave_collateral
 tag @s remove diab.relic_holder
 tag @s remove diab.event_target
 tag @s remove diab.event_survivor
@@ -23,6 +26,9 @@ scoreboard players set @s diab.cooldown 0
 scoreboard players set @s diab.rcharge 0
 scoreboard players set @s diab.contract 0
 scoreboard players set @s diab.cdebt 0
+scoreboard players set @s diab.btithe 0
+scoreboard players set @s diab.hp 0
+scoreboard players set @s diab.gravecd 0
 scoreboard players set @s diab.ledger 0
 scoreboard players set @s diab.page 0
 scoreboard players set @s diab.accept 0

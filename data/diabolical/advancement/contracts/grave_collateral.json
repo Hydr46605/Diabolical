@@ -1,0 +1,24 @@
+{
+  "parent": "diabolical:contracts/major_unlocked",
+  "display": {
+    "icon": {
+      "id": "minecraft:echo_shard"
+    },
+    "title": {
+      "text": "Grave Collateral",
+      "color": "dark_purple"
+    },
+    "description": {
+      "text": "Sign the survival clause: the Ledger can buy breath near death, but never for free."
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

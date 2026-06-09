@@ -11,7 +11,7 @@ Usage: scripts/release.sh VERSION
 Runs the release preflight and builds both distributable zips.
 
 Example:
-  scripts/release.sh 0.4.2-rc1
+  scripts/release.sh 0.5.0-dev
 EOF
 }
 

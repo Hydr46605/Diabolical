@@ -1,6 +1,7 @@
 # Shows the Infernal Ledger account status page.
 tellraw @s [{"text":"Infernal Ledger","color":"dark_red","bold":true},{"text":" - Account Status","color":"gray","bold":false}]
 function diabolical:interface/ledger/nav
+function diabolical:interface/ledger/summary
 tellraw @s [{"text":"Sin: ","color":"gray"},{"score":{"name":"@s","objective":"diab.sin"},"color":"white"},{"text":"  Debt: ","color":"gray"},{"score":{"name":"@s","objective":"diab.debt"},"color":"white"},{"text":"  Cooldown: ","color":"gray"},{"score":{"name":"@s","objective":"diab.cooldown"},"color":"white"}]
 tellraw @s [{"text":"Relic charges: ","color":"gray"},{"score":{"name":"@s","objective":"diab.rcharge"},"color":"white"}]
 tellraw @s [{"text":"Contract id: ","color":"gray"},{"score":{"name":"@s","objective":"diab.contract"},"color":"white"},{"text":"  Contract debt: ","color":"gray"},{"score":{"name":"@s","objective":"diab.cdebt"},"color":"white"}]
@@ -23,6 +24,9 @@ execute if entity @s[tag=diab.contract.red_ledger_minor] run tellraw @s [{"text"
 execute if entity @s[tag=diab.contract.pact_of_copper] run tellraw @s [{"text":"Active contract: ","color":"gray"},{"text":"Pact of Copper","color":"gold"}]
 execute if entity @s[tag=diab.contract.greed_clause] run tellraw @s [{"text":"Active contract: ","color":"gray"},{"text":"Greed Clause","color":"gold"}]
 execute if entity @s[tag=diab.contract.the_red_ledger] run tellraw @s [{"text":"Active contract: ","color":"gray"},{"text":"The Red Ledger","color":"dark_red"}]
+execute if entity @s[tag=diab.contract.blood_tithe] run tellraw @s [{"text":"Active contract: ","color":"gray"},{"text":"Blood Tithe","color":"red"}]
+execute if entity @s[tag=diab.contract.ashen_credit] run tellraw @s [{"text":"Active contract: ","color":"gray"},{"text":"Ashen Credit","color":"gray"}]
+execute if entity @s[tag=diab.contract.grave_collateral] run tellraw @s [{"text":"Active contract: ","color":"gray"},{"text":"Grave Collateral","color":"dark_purple"}]
 execute unless entity @s[tag=diab.contract_active] run tellraw @s [{"text":"Active contract: ","color":"gray"},{"text":"none","color":"white"}]
 execute if score @s diab.debt matches 1.. run tellraw @s [{"text":"Recovery: ","color":"gray"},{"text":"Ashes Paid, Bell of Remission, contract payments, night survival, or collectors.","color":"white"}]
 execute if score @s diab.debt >= #collector.target_debt diab.event run tellraw @s [{"text":"Risk: ","color":"gray"},{"text":"your current profile can dispatch a Debt Collector.","color":"red"}]

@@ -1,0 +1,3 @@
+# Describes Blood Tithe.
+tellraw @s [{"text":"\ue107 ","font":"diabolical:ledger","color":"dark_red"},{"text":"Blood Tithe","color":"red","bold":true},{"text":": selected hostile kills pay contract debt, but each tithe adds sin. Cost: +4 sin, +18 debt.","color":"gray","bold":false,"hoverEvent":{"action":"show_text","contents":{"text":"Fight to pay. Every kill credited by the Ledger still stains the account."}}}]
+tellraw @s [{"text":"  "},{"text":"[Sign]","color":"yellow","bold":true,"clickEvent":{"action":"run_command","value":"/trigger diab.accept set 7"},"hoverEvent":{"action":"show_text","contents":{"text":"Sign Blood Tithe"}}}]

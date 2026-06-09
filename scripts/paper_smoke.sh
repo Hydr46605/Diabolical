@@ -34,7 +34,7 @@ Environment overrides:
   PAPER_SMOKE_TIMEOUT        Boot timeout in seconds, default 300.
 
 Example:
-  scripts/paper_smoke.sh 0.4.2-rc1
+  scripts/paper_smoke.sh 0.5.0-dev
 EOF
 }
 
@@ -227,6 +227,11 @@ expect_log "Done (" "$timeout_seconds"
 
 send_command "datapack list enabled"
 expect_log "file/Diabolical-${version}.zip"
+
+send_command "data get storage diabolical:contracts active_ids"
+expect_log "blood_tithe"
+expect_log "ashen_credit"
+expect_log "grave_collateral"
 
 send_command "function diabolical:config/profile/apply/calm"
 send_command "scoreboard players get #profile diab.config"

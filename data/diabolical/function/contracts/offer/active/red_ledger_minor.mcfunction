@@ -1,3 +1,3 @@
 # Shows controls for active Red Ledger Minor.
-tellraw @s [{"text":"Active: Red Ledger Minor","color":"gold","bold":true},{"text":"  Contract debt: ","color":"gray","bold":false},{"score":{"name":"@s","objective":"diab.cdebt"},"color":"white"}]
+tellraw @s [{"text":"\ue103 ","font":"diabolical:ledger","color":"dark_red"},{"text":"Active: Red Ledger Minor","color":"gold","bold":true},{"text":"  Contract debt: ","color":"gray","bold":false},{"score":{"name":"@s","objective":"diab.cdebt"},"color":"white"}]
 tellraw @s [{"text":"  "},{"text":"[Pay 6]","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/trigger diab.pay set 3"},"hoverEvent":{"action":"show_text","contents":{"text":"Pay Red Ledger Minor debt"}}},{"text":"  "},{"text":"[Revoke]","color":"red","bold":true,"clickEvent":{"action":"run_command","value":"/trigger diab.revoke set 3"},"hoverEvent":{"action":"show_text","contents":{"text":"Close Red Ledger Minor without paying total debt"}}}]

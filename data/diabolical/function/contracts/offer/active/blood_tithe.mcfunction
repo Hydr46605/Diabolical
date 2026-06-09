@@ -1,0 +1,3 @@
+# Shows controls for active Blood Tithe.
+tellraw @s [{"text":"\ue107 ","font":"diabolical:ledger","color":"dark_red"},{"text":"Active: Blood Tithe","color":"red","bold":true},{"text":"  Contract debt: ","color":"gray","bold":false},{"score":{"name":"@s","objective":"diab.cdebt"},"color":"white"}]
+tellraw @s [{"text":"  "},{"text":"[Pay 6]","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/trigger diab.pay set 7"},"hoverEvent":{"action":"show_text","contents":{"text":"Pay Blood Tithe debt"}}},{"text":"  "},{"text":"[Revoke]","color":"red","bold":true,"clickEvent":{"action":"run_command","value":"/trigger diab.revoke set 7"},"hoverEvent":{"action":"show_text","contents":{"text":"Close Blood Tithe without paying total debt"}}}]

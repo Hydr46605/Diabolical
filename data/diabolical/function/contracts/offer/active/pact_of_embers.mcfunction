@@ -1,3 +1,3 @@
 # Shows controls for active Pact of Embers.
-tellraw @s [{"text":"Active: Pact of Embers","color":"gold","bold":true},{"text":"  Contract debt: ","color":"gray","bold":false},{"score":{"name":"@s","objective":"diab.cdebt"},"color":"white"}]
+tellraw @s [{"text":"\ue101 ","font":"diabolical:ledger","color":"gold"},{"text":"Active: Pact of Embers","color":"gold","bold":true},{"text":"  Contract debt: ","color":"gray","bold":false},{"score":{"name":"@s","objective":"diab.cdebt"},"color":"white"}]
 tellraw @s [{"text":"  "},{"text":"[Pay 4]","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/trigger diab.pay set 1"},"hoverEvent":{"action":"show_text","contents":{"text":"Pay Pact of Embers debt"}}},{"text":"  "},{"text":"[Revoke]","color":"red","bold":true,"clickEvent":{"action":"run_command","value":"/trigger diab.revoke set 1"},"hoverEvent":{"action":"show_text","contents":{"text":"Close Pact of Embers without paying total debt"}}}]

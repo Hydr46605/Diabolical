@@ -88,13 +88,13 @@ jq -e '.pack.supported_formats.min_inclusive == 80' pack.mcmeta >/dev/null || fa
 jq -e '.pack.supported_formats.max_inclusive == 88' pack.mcmeta >/dev/null || fail "maximum supported format must be 88"
 jq -e '.pack.min_format == [80, 0]' pack.mcmeta >/dev/null || fail "min_format must be [80, 0]"
 jq -e '.pack.max_format == [88, 0]' pack.mcmeta >/dev/null || fail "max_format must be [88, 0]"
-grep -Fq 'version:"0.4.2-rc1"' data/diabolical/function/config/defaults.mcfunction || fail "config storage version must be 0.4.2-rc1"
-grep -Fq 'version:"0.4.2-rc1",phase:24' data/diabolical/function/core/init.mcfunction || fail "runtime storage version must be 0.4.2-rc1 phase 24"
-grep -Fq 'version:"0.4.2-rc1",phase:24' data/diabolical/function/contracts/init.mcfunction || fail "contracts storage version must be 0.4.2-rc1 phase 24"
-grep -Fq 'version:"0.4.2-rc1",phase:24' data/diabolical/function/rituals/init.mcfunction || fail "rituals storage version must be 0.4.2-rc1 phase 24"
-grep -Fq 'version:"0.4.2-rc1",phase:24' data/diabolical/function/relics/init.mcfunction || fail "relics storage version must be 0.4.2-rc1 phase 24"
-grep -Fq 'version:"0.4.2-rc1",phase:24' data/diabolical/function/events/init.mcfunction || fail "events storage version must be 0.4.2-rc1 phase 24"
-grep -Fq 'version:"0.4.2-rc1",phase:24' data/diabolical/function/mobs/init.mcfunction || fail "mobs storage version must be 0.4.2-rc1 phase 24"
+grep -Fq 'version:"0.5.0-dev"' data/diabolical/function/config/defaults.mcfunction || fail "config storage version must be 0.5.0-dev"
+grep -Fq 'version:"0.5.0-dev",phase:25' data/diabolical/function/core/init.mcfunction || fail "runtime storage version must be 0.5.0-dev phase 25"
+grep -Fq 'version:"0.5.0-dev",phase:25' data/diabolical/function/contracts/init.mcfunction || fail "contracts storage version must be 0.5.0-dev phase 25"
+grep -Fq 'version:"0.5.0-dev",phase:25' data/diabolical/function/rituals/init.mcfunction || fail "rituals storage version must be 0.5.0-dev phase 25"
+grep -Fq 'version:"0.5.0-dev",phase:25' data/diabolical/function/relics/init.mcfunction || fail "relics storage version must be 0.5.0-dev phase 25"
+grep -Fq 'version:"0.5.0-dev",phase:25' data/diabolical/function/events/init.mcfunction || fail "events storage version must be 0.5.0-dev phase 25"
+grep -Fq 'version:"0.5.0-dev",phase:25' data/diabolical/function/mobs/init.mcfunction || fail "mobs storage version must be 0.5.0-dev phase 25"
 grep -Fq 'function diabolical:config/profile/apply_current' data/diabolical/function/core/init.mcfunction || fail "runtime bootstrap must reapply the stored balance profile"
 grep -Fq 'if score @s diab.debt >= #collector.target_debt' data/diabolical/function/events/director/tick.mcfunction || fail "director must use profile-backed collector threshold"
 grep -Fq 'if score @s diab.sin >= #court.accuser_sin' data/diabolical/function/mobs/tick.mcfunction || fail "court pressure must use profile-backed accuser threshold"
@@ -113,6 +113,13 @@ jq -e '.pack.supported_formats.min_inclusive == 63' "${resource_pack_root}/pack.
 jq -e '.pack.supported_formats.max_inclusive == 64' "${resource_pack_root}/pack.mcmeta" >/dev/null || fail "optional resource pack maximum supported format must be 64"
 jq -e '.pack.min_format == [63, 0]' "${resource_pack_root}/pack.mcmeta" >/dev/null || fail "optional resource pack min_format must be [63, 0]"
 jq -e '.pack.max_format == [64, 0]' "${resource_pack_root}/pack.mcmeta" >/dev/null || fail "optional resource pack max_format must be [64, 0]"
+
+ledger_font="${resource_pack_root}/assets/diabolical/font/ledger.json"
+ledger_font_texture="${resource_pack_root}/assets/diabolical/textures/font/ledger_contracts.png"
+[[ -f "$ledger_font" ]] || fail "missing Ledger font definition: $ledger_font"
+check_png_size "$ledger_font_texture" 144 16
+jq -e '.providers[0].type == "bitmap" and .providers[0].file == "diabolical:font/ledger_contracts.png" and .providers[0].height == 16' "$ledger_font" >/dev/null || fail "bad Ledger font provider: $ledger_font"
+jq -e '.providers[0].chars == ["\ue101\ue102\ue103\ue104\ue105\ue106\ue107\ue108\ue109"]' "$ledger_font" >/dev/null || fail "Ledger font must map nine contract glyphs: $ledger_font"
 
 note "checking release automation"
 grep -Fq 'scripts/release.sh' .github/workflows/ci.yml || fail "CI workflow must use release preflight"
@@ -460,6 +467,44 @@ done
 while IFS= read -r objective; do
   [[ -n "${trigger_objectives[$objective]:-}" ]] || fail "clickable trigger uses unknown objective: $objective"
 done < <(grep -RhoE '/?trigger[[:space:]]+diab\.[a-z0-9_.-]+' data/diabolical/function | awk '{print $2}' | sort -u)
+
+note "checking contract routes"
+contract_specs=(
+  pact_of_embers:1
+  pact_of_hunger:2
+  red_ledger_minor:3
+  pact_of_copper:4
+  greed_clause:5
+  the_red_ledger:6
+  blood_tithe:7
+  ashen_credit:8
+  grave_collateral:9
+)
+
+for spec in "${contract_specs[@]}"; do
+  contract="${spec%%:*}"
+  id="${spec#*:}"
+
+  [[ -f "data/diabolical/function/contracts/offer/${contract}.mcfunction" ]] || fail "missing contract offer: $contract"
+  [[ -f "data/diabolical/function/contracts/offer/active/${contract}.mcfunction" ]] || fail "missing active contract offer: $contract"
+  [[ -f "data/diabolical/function/contracts/accept/${contract}.mcfunction" ]] || fail "missing contract accept wrapper: $contract"
+  [[ -f "data/diabolical/function/contracts/accept/grant/${contract}.mcfunction" ]] || fail "missing contract grant function: $contract"
+  [[ -f "data/diabolical/function/contracts/pay/${contract}.mcfunction" ]] || fail "missing contract payment wrapper: $contract"
+  [[ -f "data/diabolical/function/contracts/pay/apply/${contract}.mcfunction" ]] || fail "missing contract payment apply function: $contract"
+  [[ -f "data/diabolical/function/contracts/revoke/${contract}.mcfunction" ]] || fail "missing contract revoke wrapper: $contract"
+  [[ -f "data/diabolical/function/contracts/revoke/apply/${contract}.mcfunction" ]] || fail "missing contract revoke apply function: $contract"
+  [[ -f "data/diabolical/function/contracts/tick/${contract}.mcfunction" ]] || fail "missing contract tick function: $contract"
+  [[ -f "data/diabolical/advancement/contracts/${contract}.json" ]] || fail "missing contract advancement: $contract"
+
+  grep -Fq "diab.accept=${id}" data/diabolical/function/actions/tick.mcfunction || fail "missing accept trigger route for contract id ${id}: $contract"
+  grep -Fq "diab.pay=${id}" data/diabolical/function/actions/tick.mcfunction || fail "missing pay trigger route for contract id ${id}: $contract"
+  grep -Fq "diab.revoke=${id}" data/diabolical/function/actions/tick.mcfunction || fail "missing revoke trigger route for contract id ${id}: $contract"
+  grep -Fq "diab.contract.${contract}" data/diabolical/function/contracts/tick.mcfunction || fail "missing active tick route: $contract"
+  grep -Fq "\"${contract}\"" data/diabolical/function/contracts/init.mcfunction || fail "contract registry missing: $contract"
+done
+
+glyph_count="$(grep -R '"font":"diabolical:ledger"' data/diabolical/function/contracts/offer/*.mcfunction data/diabolical/function/contracts/offer/active/*.mcfunction | wc -l || true)"
+((glyph_count >= 18)) || fail "every contract offer and active row must include a Ledger glyph"
 
 note "checking data-pack path casing"
 while IFS= read -r -d '' path; do

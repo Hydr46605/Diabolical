@@ -14,11 +14,12 @@
 Minecraft Java data pack for infernal contracts, debt pressure, relics, events,
 and vanilla-mob trials.
 
-The resource pack is optional and only changes item visuals.
+The resource pack is optional and adds item visuals plus Ledger glyph markers.
+Gameplay and text remain readable without it.
 
 ## Status
 
-- Version: `0.4.2-rc1`
+- Version: `0.5.0-dev`
 - Data pack: formats `80`-`88`
 - Optional resource pack: formats `63`-`64`
 - Namespace: `diabolical`
@@ -28,6 +29,7 @@ The resource pack is optional and only changes item visuals.
 
 - altar rituals and an Infernal Ledger
 - contract, debt, sin, payment, and revocation loops
+- Red Ledger contracts: Blood Tithe, Ashen Credit, and Grave Collateral
 - cursed relics and recovery items
 - Diabolical Night, Debt Collector, and Infernal Audit events
 - Sinbound Court mob trials
@@ -37,10 +39,10 @@ The resource pack is optional and only changes item visuals.
 ## Install
 
 ```sh
-scripts/package.sh 0.4.2-rc1
+scripts/package.sh 0.5.0-dev
 ```
 
-Put `dist/Diabolical-0.4.2-rc1.zip` in `world/datapacks/`, then run:
+Put `dist/Diabolical-0.5.0-dev.zip` in `world/datapacks/`, then run:
 
 ```mcfunction
 /reload
@@ -51,18 +53,18 @@ function diabolical:config/status
 ## Optional Resource Pack
 
 ```sh
-scripts/package_resourcepack.sh 0.4.2-rc1
+scripts/package_resourcepack.sh 0.5.0-dev
 ```
 
-Install `dist/Diabolical-optional-resources-0.4.2-rc1.zip` as a normal resource
-pack.
+Install `dist/Diabolical-optional-resources-0.5.0-dev.zip` as a normal resource
+pack. The Ledger still uses plain text without it.
 
 ## Verification
 
 ```sh
 scripts/validate.sh
-scripts/release.sh 0.4.2-rc1
-scripts/paper_smoke.sh 0.4.2-rc1
+scripts/release.sh 0.5.0-dev
+scripts/paper_smoke.sh 0.5.0-dev
 ```
 
 ## Docs

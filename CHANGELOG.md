@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.0-dev
+
+- Added the Red Ledger Expansion with Blood Tithe, Ashen Credit, and Grave
+  Collateral contracts.
+- Added distinct Ledger and advancement icon identity for every contract.
+- Reworked the Ledger contract pages with grouped clauses, compact status, and
+  optional glyph markers from the sidecar resource pack.
+- Bumped versioned runtime storage to phase 25.
+
 ## 0.4.2-rc1
 
 - Prepared the repository for public review with clearer README, verification,

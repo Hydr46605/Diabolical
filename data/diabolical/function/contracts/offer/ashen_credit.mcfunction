@@ -1,0 +1,3 @@
+# Describes Ashen Credit.
+tellraw @s [{"text":"\ue108 ","font":"diabolical:ledger","color":"dark_gray"},{"text":"Ashen Credit","color":"gray","bold":true},{"text":": clears a small balance now, then opens a larger one. Cost: +2 sin, +24 debt after relief.","color":"gray","bold":false,"hoverEvent":{"action":"show_text","contents":{"text":"A refinancing clause for desperate accounts. Useful now, worse if ignored."}}}]
+tellraw @s [{"text":"  "},{"text":"[Sign]","color":"yellow","bold":true,"clickEvent":{"action":"run_command","value":"/trigger diab.accept set 8"},"hoverEvent":{"action":"show_text","contents":{"text":"Sign Ashen Credit"}}}]

@@ -1,0 +1,3 @@
+# Shows controls for active Ashen Credit.
+tellraw @s [{"text":"\ue108 ","font":"diabolical:ledger","color":"dark_gray"},{"text":"Active: Ashen Credit","color":"gray","bold":true},{"text":"  Contract debt: ","color":"gray","bold":false},{"score":{"name":"@s","objective":"diab.cdebt"},"color":"white"}]
+tellraw @s [{"text":"  "},{"text":"[Pay 8]","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/trigger diab.pay set 8"},"hoverEvent":{"action":"show_text","contents":{"text":"Pay Ashen Credit debt"}}},{"text":"  "},{"text":"[Revoke]","color":"red","bold":true,"clickEvent":{"action":"run_command","value":"/trigger diab.revoke set 8"},"hoverEvent":{"action":"show_text","contents":{"text":"Close Ashen Credit without paying total debt"}}}]

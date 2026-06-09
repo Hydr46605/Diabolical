@@ -19,6 +19,9 @@ execute if score #contracts diab.config matches 1 as @a[scores={diab.accept=3}] 
 execute if score #contracts diab.config matches 1 as @a[scores={diab.accept=4}] run function diabolical:contracts/accept/pact_of_copper
 execute if score #contracts diab.config matches 1 as @a[scores={diab.accept=5}] run function diabolical:contracts/accept/greed_clause
 execute if score #contracts diab.config matches 1 as @a[scores={diab.accept=6}] run function diabolical:contracts/accept/the_red_ledger
+execute if score #contracts diab.config matches 1 as @a[scores={diab.accept=7}] run function diabolical:contracts/accept/blood_tithe
+execute if score #contracts diab.config matches 1 as @a[scores={diab.accept=8}] run function diabolical:contracts/accept/ashen_credit
+execute if score #contracts diab.config matches 1 as @a[scores={diab.accept=9}] run function diabolical:contracts/accept/grave_collateral
 
 execute if score #contracts diab.config matches 1 as @a[scores={diab.pay=1}] run function diabolical:contracts/pay/pact_of_embers
 execute if score #contracts diab.config matches 1 as @a[scores={diab.pay=2}] run function diabolical:contracts/pay/pact_of_hunger
@@ -26,6 +29,9 @@ execute if score #contracts diab.config matches 1 as @a[scores={diab.pay=3}] run
 execute if score #contracts diab.config matches 1 as @a[scores={diab.pay=4}] run function diabolical:contracts/pay/pact_of_copper
 execute if score #contracts diab.config matches 1 as @a[scores={diab.pay=5}] run function diabolical:contracts/pay/greed_clause
 execute if score #contracts diab.config matches 1 as @a[scores={diab.pay=6}] run function diabolical:contracts/pay/the_red_ledger
+execute if score #contracts diab.config matches 1 as @a[scores={diab.pay=7}] run function diabolical:contracts/pay/blood_tithe
+execute if score #contracts diab.config matches 1 as @a[scores={diab.pay=8}] run function diabolical:contracts/pay/ashen_credit
+execute if score #contracts diab.config matches 1 as @a[scores={diab.pay=9}] run function diabolical:contracts/pay/grave_collateral
 
 execute if score #contracts diab.config matches 1 as @a[scores={diab.revoke=1}] run function diabolical:contracts/revoke/pact_of_embers
 execute if score #contracts diab.config matches 1 as @a[scores={diab.revoke=2}] run function diabolical:contracts/revoke/pact_of_hunger
@@ -33,6 +39,9 @@ execute if score #contracts diab.config matches 1 as @a[scores={diab.revoke=3}] 
 execute if score #contracts diab.config matches 1 as @a[scores={diab.revoke=4}] run function diabolical:contracts/revoke/pact_of_copper
 execute if score #contracts diab.config matches 1 as @a[scores={diab.revoke=5}] run function diabolical:contracts/revoke/greed_clause
 execute if score #contracts diab.config matches 1 as @a[scores={diab.revoke=6}] run function diabolical:contracts/revoke/the_red_ledger
+execute if score #contracts diab.config matches 1 as @a[scores={diab.revoke=7}] run function diabolical:contracts/revoke/blood_tithe
+execute if score #contracts diab.config matches 1 as @a[scores={diab.revoke=8}] run function diabolical:contracts/revoke/ashen_credit
+execute if score #contracts diab.config matches 1 as @a[scores={diab.revoke=9}] run function diabolical:contracts/revoke/grave_collateral
 
 execute if score #contracts diab.config matches 0 as @a[scores={diab.accept=1..}] run function diabolical:interface/ledger/disabled/contracts
 execute if score #contracts diab.config matches 0 as @a[scores={diab.pay=1..}] run function diabolical:interface/ledger/disabled/contracts

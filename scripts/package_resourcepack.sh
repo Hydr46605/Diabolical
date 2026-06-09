@@ -68,6 +68,16 @@ has_entry "assets/diabolical/items/black_writ.json" || {
   exit 1
 }
 
+has_entry "assets/diabolical/font/ledger.json" || {
+  printf 'package-resourcepack: error: Ledger font definition is missing from zip root\n' >&2
+  exit 1
+}
+
+has_entry "assets/diabolical/textures/font/ledger_contracts.png" || {
+  printf 'package-resourcepack: error: Ledger font texture is missing from zip root\n' >&2
+  exit 1
+}
+
 if printf '%s\n' "${zip_entries[@]}" | grep -Eq '^[^/]+/pack\.mcmeta$'; then
   printf 'package-resourcepack: error: zip contains a nested pack.mcmeta; package the resource pack root directly\n' >&2
   exit 1

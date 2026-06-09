@@ -7,6 +7,9 @@ scoreboard players add @s diab.cooldown 0
 scoreboard players add @s diab.rcharge 0
 scoreboard players add @s diab.contract 0
 scoreboard players add @s diab.cdebt 0
+scoreboard players add @s diab.btithe 0
+scoreboard players add @s diab.hp 0
+scoreboard players add @s diab.gravecd 0
 scoreboard players set @s diab.ledger 0
 scoreboard players set @s diab.accept 0
 scoreboard players set @s diab.pay 0

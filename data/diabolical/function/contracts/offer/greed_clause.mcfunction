@@ -1,3 +1,3 @@
 # Describes Greed Clause.
-tellraw @s [{"text":"Greed Clause","color":"gold","bold":true},{"text":": immediate gold, one emerald, and luck while active. Cost: +2 sin, +14 debt.","color":"gray","bold":false}]
+tellraw @s [{"text":"\ue105 ","font":"diabolical:ledger","color":"yellow"},{"text":"Greed Clause","color":"gold","bold":true},{"text":": immediate gold, one emerald, and luck while active. Cost: +2 sin, +14 debt.","color":"gray","bold":false,"hoverEvent":{"action":"show_text","contents":{"text":"Small coin and luck now, larger balance in the Ledger."}}}]
 tellraw @s [{"text":"  "},{"text":"[Sign]","color":"yellow","bold":true,"clickEvent":{"action":"run_command","value":"/trigger diab.accept set 5"},"hoverEvent":{"action":"show_text","contents":{"text":"Sign Greed Clause"}}}]

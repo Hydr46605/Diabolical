@@ -1,0 +1,13 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "diabolical:font/ledger_contracts.png",
+      "ascent": 13,
+      "height": 16,
+      "chars": [
+        "\ue101\ue102\ue103\ue104\ue105\ue106\ue107\ue108\ue109"
+      ]
+    }
+  ]
+}

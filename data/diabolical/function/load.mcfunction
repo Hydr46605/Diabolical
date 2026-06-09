@@ -6,6 +6,9 @@ scoreboard objectives add diab.cooldown dummy
 scoreboard objectives add diab.rcharge dummy
 scoreboard objectives add diab.contract dummy
 scoreboard objectives add diab.cdebt dummy
+scoreboard objectives add diab.btithe dummy
+scoreboard objectives add diab.hp dummy
+scoreboard objectives add diab.gravecd dummy
 scoreboard objectives add diab.event dummy
 scoreboard objectives add diab.mob dummy
 scoreboard objectives add diab.tmp dummy

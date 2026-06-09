@@ -1,0 +1,3 @@
+# Describes Grave Collateral.
+tellraw @s [{"text":"\ue109 ","font":"diabolical:ledger","color":"dark_purple"},{"text":"Grave Collateral","color":"dark_purple","bold":true},{"text":": emergency survival clause near death. Each save adds debt and sin. Cost: +6 sin, +32 debt.","color":"gray","bold":false,"hoverEvent":{"action":"show_text","contents":{"text":"You do not die for free. Repeated saves make the account dangerous."}}}]
+tellraw @s [{"text":"  "},{"text":"[Sign]","color":"yellow","bold":true,"clickEvent":{"action":"run_command","value":"/trigger diab.accept set 9"},"hoverEvent":{"action":"show_text","contents":{"text":"Sign Grave Collateral"}}}]

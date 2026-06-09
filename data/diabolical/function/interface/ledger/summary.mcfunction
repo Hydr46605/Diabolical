@@ -1,0 +1,2 @@
+# Compact account line shared by Ledger pages.
+tellraw @s [{"text":"Account: ","color":"dark_gray"},{"text":"sin ","color":"gray"},{"score":{"name":"@s","objective":"diab.sin"},"color":"white"},{"text":"  debt ","color":"gray"},{"score":{"name":"@s","objective":"diab.debt"},"color":"white"},{"text":"  Contract debt ","color":"gray"},{"score":{"name":"@s","objective":"diab.cdebt"},"color":"white"}]

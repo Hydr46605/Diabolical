@@ -1,5 +1,5 @@
 # Module bootstrap.
-data merge storage diabolical:runtime {enabled:1b,version:"0.4.2-rc1",phase:24,heartbeat:{enabled:1b,interval:"1s"}}
+data merge storage diabolical:runtime {enabled:1b,version:"0.5.0-dev",phase:25,heartbeat:{enabled:1b,interval:"1s"}}
 
 scoreboard players set #runtime diab.tick 0
 scoreboard players set #heartbeat diab.tick 0
